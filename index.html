@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>2026 무안CC 골프 투어 일정표</title>
+  <title>2026 무안CC 부부 골프 투어 일정 & 투표 플래너</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -11,7 +11,7 @@
     body { 
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
       -webkit-tap-highlight-color: transparent;
-      font-size: 20px; /* 어르신용 기본 큰 글씨 적용 */
+      font-size: 16px; /* 어르신용 시원한 큰 글씨 */
     }
   </style>
 </head>
@@ -22,12 +22,12 @@
     <div class="max-w-xl mx-auto flex items-center justify-between">
       <div>
         <div class="text-sm text-emerald-200 font-bold mb-0.5">
-          ⛳ 형진부부 & 은남이랑 성호 - 4인 남도 골프 투어
+          ⛳ 성호·은남 & 형진·용미 4인 투어
         </div>
-        <h1 class="text-xl font-extrabold tracking-tight">무안CC 2박 3일 맞춤 일정표</h1>
+        <h1 class="text-xl font-extrabold tracking-tight">무안CC 골프 투어 플래너</h1>
       </div>
       <span class="text-xs bg-emerald-700 border border-emerald-400/50 px-3 py-1.5 rounded-full font-bold">
-        11/28(토)~30(월)
+        11/27(금)~30(월)
       </span>
     </div>
   </header>
@@ -35,88 +35,146 @@
   <!-- 메인 본문 -->
   <main class="max-w-xl mx-auto px-4 pt-4 space-y-4">
 
-    <!-- 핵심 요약 카드 -->
-    <div class="bg-white rounded-2xl p-5 shadow-sm border-2 border-emerald-600 space-y-3">
+    <!-- 1박 숙소 선택 및 실시간 비용 연동 계산기 -->
+    <section class="bg-white rounded-2xl p-5 shadow-md border-2 border-emerald-600 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <span class="text-sm font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-lg">투어 핵심 요약</span>
-        <span class="text-base font-extrabold text-slate-900">패키지+기숙사 36홀</span>
+        <span class="text-sm font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg">
+          <i class="fa-solid fa-calculator text-emerald-600 mr-1"></i> 숙소 선택 & 비용 계산기
+        </span>
+        <span class="text-xs font-bold text-slate-500">2인 1실 2개 방 기준</span>
       </div>
-      <div class="space-y-2 text-sm text-slate-700 leading-relaxed font-semibold">
-        <p class="flex items-center gap-2">🚗 <strong>출발:</strong> 토 07:00 난곡사거리 집결 ➔ 4인 1차로 출발</p>
-        <p class="flex items-center gap-2">🛏️ <strong>숙소:</strong> 토(남악 모아엘가 2차) / 일(무안CC 골프텔 2실)</p>
-        <p class="flex items-center gap-2">⛳ <strong>골프:</strong> 일(따뜻한 낮 라운드) + 월(오전 여유 라운드)</p>
-        <p class="flex items-center gap-2">🥧 <strong>간식/식사:</strong> 목포 에그타르트, 무안 갯벌낙지직판장</p>
-      </div>
-    </div>
 
-    <!-- 1일차 코스 투표 섹션 -->
+      <!-- 1박 숙소 결정 칸 -->
+      <div class="space-y-2">
+        <label class="text-sm font-extrabold text-slate-900 block">
+          🛏️ 첫날(1박차) 숙소 결정:
+        </label>
+        <div class="grid grid-cols-2 gap-2">
+          <label id="label-dorm" class="flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="first_night_stay" value="dorm" checked onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
+              <span class="text-sm font-bold text-slate-900">영학 기숙사</span>
+            </div>
+            <span class="text-xs text-emerald-700 font-extrabold pl-6">숙박비 0원 (찬스)</span>
+            <span class="text-[11px] text-slate-500 pl-6 mt-0.5">남악 모아엘가 204동</span>
+          </label>
+
+          <label id="label-hotel" class="flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="first_night_stay" value="hotel" onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
+              <span class="text-sm font-bold text-slate-900">무안CC 골프텔</span>
+            </div>
+            <span class="text-xs text-amber-700 font-extrabold pl-6">+45,000원 / 1인</span>
+            <span class="text-[11px] text-slate-500 pl-6 mt-0.5">2실 추가 (방당 9만)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 실시간 합산 견적 박스 -->
+      <div class="bg-slate-900 text-white rounded-xl p-4 space-y-2 shadow-inner">
+        <div class="flex justify-between items-center text-xs text-slate-300">
+          <span>일·월 패키지(36홀+골프텔 1박+조식)</span>
+          <span class="font-bold text-slate-100">315,000원</span>
+        </div>
+        <div class="flex justify-between items-center text-xs text-slate-300">
+          <span>첫날(1박차) 숙박 추가 요금</span>
+          <span id="calc-first-stay" class="font-bold text-emerald-400">0원 (기숙사)</span>
+        </div>
+        <div class="flex justify-between items-center text-xs text-slate-300">
+          <span>식대·케이블카·교통 예상 공용 경비</span>
+          <span class="font-bold text-slate-100">약 120,000원</span>
+        </div>
+        <div class="border-t border-slate-700 pt-2 flex justify-between items-end">
+          <div>
+            <div class="text-[11px] text-emerald-400 font-bold">1인당 최종 예상 경비</div>
+            <div id="calc-person-total" class="text-xl font-extrabold text-white">약 435,000원</div>
+          </div>
+          <div class="text-right">
+            <div class="text-[11px] text-slate-400">부부 2인 기준 합계</div>
+            <div id="calc-couple-total" class="text-base font-extrabold text-amber-300">약 870,000원</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 동반자 투표 섹션 -->
     <section class="bg-white rounded-2xl p-5 shadow-md border-2 border-amber-400 space-y-4">
       <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
-        <i class="fa-solid fa-utensils text-amber-500 text-xl"></i>
-        <h3 class="text-base font-extrabold text-slate-900">동반자 투표: 토요일 하행 코스 선택</h3>
+        <i class="fa-solid fa-square-poll-check text-amber-500 text-xl"></i>
+        <h3 class="text-base font-extrabold text-slate-900">동반자 투표: 출발 시간 & 숙소 결정</h3>
       </div>
       
       <p class="text-sm text-slate-600 font-semibold leading-relaxed">
-        토요일 내려가는 길에 점심과 관광을 어디서 할지 원하는 코스를 선택해 주세요! (18시 전 남악 숙소 도착 공통)
+        형진 & 용미 부부의 선호하는 출발 시점과 첫날 숙소를 선택해 주세요!
       </p>
 
       <div class="space-y-2.5">
         <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
-          <input type="radio" name="route_vote" value="1안) 군산 짬뽕 + 이성당 빵 + 목포 해상케이블카" checked class="w-5 h-5 mt-0.5 text-emerald-600">
+          <input type="radio" name="departure_vote" value="금요일 저녁 7시 출발 (남악 도착 후 토요일 아점+케이블카 투어)" checked class="w-5 h-5 mt-0.5 text-emerald-600">
           <span class="text-sm font-bold text-slate-800 leading-snug">
-            [1안] 군산 미식 & 목포 케이블카 코스<br>
+            [1안] 금요일 저녁 7시 동시 출발 (강력 추천)<br>
             <span class="text-xs font-normal text-slate-500">
-              • 군산 유명 중식당 짬뽕 점심<br>
-              • 이성당 본점 빵 포장(단팥빵/야채빵)<br>
-              • 목포 도착 후 해상케이블카 탑승 (바다 조망)
+              • 금요일 밤 도착해 푹 자고, 토요일 아침부터 목포 케이블카·고하도·유달산·에그타르트 풀코스 투어
             </span>
           </span>
         </label>
 
         <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
-          <input type="radio" name="route_vote" value="2안) 변산 채석강 백반 + 채석강 바다산책 + 내소사 숲길" class="w-5 h-5 mt-0.5 text-emerald-600">
+          <input type="radio" name="departure_vote" value="토요일 아침 7시 각자 출발 (중간 맛집 집결)" class="w-5 h-5 mt-0.5 text-emerald-600">
           <span class="text-sm font-bold text-slate-800 leading-snug">
-            [2안] 변산반도 채석강 & 내소사 힐링 코스<br>
+            [2안] 토요일 아침 7시 각자 출발<br>
             <span class="text-xs font-normal text-slate-500">
-              • 채석강 인근 백합죽/백반 점심<br>
-              • 채석강 해식절벽 가벼운 바다 산책<br>
-              • 부안 내소사 고즈넉한 전나무 숲길 평지 산책
+              • 자차 2대로 출발해 중간(군산 짬뽕 또는 변산 채석강)에서 만나 점심 먹고 남악 이동
             </span>
           </span>
         </label>
       </div>
 
       <div class="space-y-2 pt-1">
-        <input type="text" id="voter-name" placeholder="이름 (예: 은남)" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-emerald-600">
-        <textarea id="voter-comment" rows="2" placeholder="한 줄 의견 (예: 짬뽕 먹고 케이블카 타고 싶어요!)" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-600"></textarea>
+        <input type="text" id="voter-name" placeholder="이름 (예: 형진, 은남, 성호)" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-emerald-600">
+        <textarea id="voter-comment" rows="2" placeholder="의견을 남겨주세요 (예: 금욜 출발 찬성! 1박은 기숙사로 숙박비 아껴요)" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-600"></textarea>
       </div>
 
       <button onclick="copyVoteResult()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-base py-3.5 rounded-xl shadow transition active:scale-95 flex items-center justify-center gap-2">
-        <i class="fa-solid fa-comment-dots text-lg"></i> 내 선택 카톡으로 보내기
+        <i class="fa-solid fa-comment-dots text-lg"></i> 내 투표 & 선택 카톡으로 보내기
       </button>
     </section>
 
-    <!-- 일자별 상세 일정 -->
+    <!-- 일자별 상세 일정표 -->
     <section class="space-y-3">
       <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
         <i class="fa-regular fa-calendar-check text-emerald-700"></i> 일자별 상세 스케줄
       </h2>
 
+      <!-- 0일차 -->
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="bg-indigo-100 text-indigo-900 text-xs font-extrabold px-2.5 py-1 rounded-md">0일차 : 11/27(금 저녁)</span>
+          <span class="text-xs font-bold text-slate-500">남악 베이스캠프 입실</span>
+        </div>
+        <h3 class="text-base font-bold text-slate-900">저녁 7시 각자 출발 ➔ 남악 기숙사 입실</h3>
+        <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
+          <li>• <strong>19:00</strong> 1팀(성호·은남), 2팀(형진·용미) 각각 자차로 출발</li>
+          <li>• <strong>23:00</strong> <strong>남악 모아엘가2차 204동 1101호</strong> 도착 및 주차/입실</li>
+          <li>• <strong>23:00~</strong> 짐 정리 및 가벼운 야식/맥주 한잔 후 꿀잠 (토요일 운전 피로 해소)</li>
+        </ul>
+      </div>
+
       <!-- 1일차 -->
       <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
         <div class="flex items-center justify-between">
           <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-2.5 py-1 rounded-md">1일차 : 11/28(토)</span>
-          <span class="text-xs font-bold text-slate-500">서해안 드라이브 & 남악</span>
+          <span class="text-xs font-bold text-slate-500">목포 관광 & 삼호가든 만찬</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">픽업 ➔ 군산/변산 투어 ➔ 에그타르트 ➔ 기숙사</h3>
+        <h3 class="text-base font-bold text-slate-900">아점 ➔ 케이블카/유달산 ➔ 에그타르트 ➔ 삼호가든</h3>
         <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
-          <li>• <strong>06:30</strong> 과천 은남 픽업 ➔ <strong>07:00</strong> 난곡사거리 도착 (골프백 4개 적재)</li>
-          <li>• <strong>07:10</strong> 서해안고속도로 진입 (정체 전 서해대교 통과)</li>
-          <li>• <strong>11:30~15:00</strong> 투표 결과에 따른 점심 & 관광 (군산+케이블카 vs 채석강+내소사)</li>
-          <li>• <strong>17:00</strong> 목포 명물 <strong>에그타르트 맛집(&lt;커피창고로&gt;)</strong> 들러 포장</li>
-          <li>• <strong>17:40</strong> <strong>남악 모아엘가 2차 기숙사 입실</strong> (18시 전 도착) & 휴식</li>
-          <li>• <strong>18:30</strong> 저녁 식사: <strong>삼호가든 낙지초무침</strong> 또는 남악 로컬 맛집</li>
-          <li>• <strong>20:30</strong> 기숙사 복귀 후 에그타르트 디저트 & 담소</li>
+          <li>• <strong>10:30~11:30</strong> <strong>[아점]</strong> 목포 로컬 조식 (백반 또는 쫄복지리)</li>
+          <li>• <strong>11:45~14:00</strong> <strong>[목포 해상케이블카]</strong> 북항 ➔ 고하도 바다 산책 ➔ 귀환 길 유달산 정상 전망 감상</li>
+          <li>• <strong>14:30~16:30</strong> 목포 근대역사문화거리 및 목포진/등대 바다 조망</li>
+          <li>• <strong>16:40</strong> 명물 <strong>&lt;커피창고로&gt;</strong> 인생 에그타르트 포장</li>
+          <li>• <strong>17:40</strong> <strong>기숙사 차 주차 완료</strong> (편안하게 술 한잔할 준비 완료!)</li>
+          <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침·연포탕에 소주 한잔)</li>
+          <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 티타임 & <strong>내일 골프백/짐 사전 정리 완료!</strong></li>
         </ul>
       </div>
 
@@ -126,14 +184,13 @@
           <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-2.5 py-1 rounded-md">2일차 : 11/29(일)</span>
           <span class="text-xs font-bold text-emerald-700">무안CC 1차 라운드 & 골프텔</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">여유로운 아침 ➔ 낮 라운드 ➔ 뻘낙지직판장</h3>
+        <h3 class="text-base font-bold text-slate-900">체크아웃 ➔ 낮 라운드 ➔ 뻘낙지직판장 ➔ 골프텔</h3>
         <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
-          <li>• <strong>09:00~10:00</strong> 여유로운 기상 및 아침 식사 후 기숙사 청소/정리</li>
-          <li>• <strong>10:10</strong> 남악 출발 ➔ 무안CC 이동 (약 25분)</li>
-          <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (노캐디 셀프)</strong><br><span class="text-xs text-emerald-700 font-bold">*하루 중 가장 포근한 낮 기온(12~14℃)에서 플레이</span></li>
-          <li>• <strong>16:30</strong> 라운드 종료 및 개운하게 샤워</li>
-          <li>• <strong>17:00</strong> 이른 저녁: 골프장 앞 <strong>&lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이·연포탕 만찬)</li>
-          <li>• <strong>19:00</strong> <strong>무안CC 골프텔 2실 입실</strong> 및 편안한 휴식</li>
+          <li>• <strong>10:00</strong> 기숙사 최종 체크아웃 ➔ 무안CC 이동 (약 25분)</li>
+          <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (서B ➔ 서A, 셀프)</strong><br><span class="text-xs text-emerald-700 font-bold">*하루 중 가장 따뜻한 낮 12~14℃ 기온에서 플레이</span></li>
+          <li>• <strong>16:30</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
+          <li>• <strong>17:00</strong> <strong>[저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이, 연포탕 만찬)</li>
+          <li>• <strong>19:00</strong> <strong>무안CC 클럽하우스 골프텔 체크인 (부부별 2실)</strong> 및 휴식</li>
         </ul>
       </div>
 
@@ -141,16 +198,16 @@
       <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
         <div class="flex items-center justify-between">
           <span class="bg-blue-100 text-blue-900 text-xs font-extrabold px-2.5 py-1 rounded-md">3일차 : 11/30(월)</span>
-          <span class="text-xs font-bold text-slate-500">2차 라운드 & 상경 투어</span>
+          <span class="text-xs font-bold text-slate-500">2차 라운드 & 해미읍성 & 귀경</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">오전 라운드 ➔ 해미읍성 산책 ➔ 귀경</h3>
+        <h3 class="text-base font-bold text-slate-900">조식 ➔ 2차 라운드 ➔ 해미읍성 산책 ➔ 안전 귀가</h3>
         <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
-          <li>• <strong>07:30</strong> 골프텔 체크아웃 & 클럽하우스 조식 (패키지 포함)</li>
-          <li>• <strong>08:34 전후</strong> <strong>무안CC 2차 18홀 라운드 (노캐디 셀프)</strong></li>
-          <li>• <strong>13:00</strong> 샤워 후 서울 방면으로 여유롭게 출발 (가는 길 가벼운 점심)</li>
-          <li>• <strong>15:30~16:30</strong> 충남 서산 <strong>&lt;해미읍성&gt;</strong> 들러 성곽 잔디밭 평지 산책</li>
-          <li>• <strong>18:30</strong> 서울 도착이 늦어질 경우 당진/서평택 인근 맛집 저녁 식사</li>
-          <li>• <strong>20:30~21:30</strong> 난곡사거리 짐 하차 ➔ 과천 은남 배웅 ➔ 장승배기 복귀</li>
+          <li>• <strong>07:30</strong> 골프텔 체크아웃 및 클럽하우스 조식 (패키지 포함)</li>
+          <li>• <strong>08:34 전후</strong> <strong>무안CC 2차 18홀 라운드 (서A ➔ 서B, 셀프)</strong></li>
+          <li>• <strong>13:00</strong> 라운드 종료 및 샤워 후 상경 출발 (차량 2대 각자 이동)</li>
+          <li>• <strong>15:30~16:30</strong> <strong>서산 &lt;해미읍성&gt;</strong> 평지 성곽길 잔디밭 가벼운 산책</li>
+          <li>• <strong>18:30</strong> 서해안선 정체 시 당진/서평택 인근 맛집 저녁 식사</li>
+          <li>• <strong>20:30~21:00</strong> 각자 자택 안전 복귀 및 투어 종료</li>
         </ul>
       </div>
     </section>
@@ -161,8 +218,8 @@
   <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 shadow-lg">
     <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
       <div class="flex-1 truncate">
-        <div class="text-xs text-slate-500 font-bold">11/28~30 무안CC 36홀</div>
-        <div class="text-sm font-extrabold text-emerald-800 truncate">남악기숙사 + 무안골프텔</div>
+        <div class="text-xs text-slate-500 font-bold">11/27~30 무안CC 36홀</div>
+        <div id="bar-summary" class="text-sm font-extrabold text-emerald-800 truncate">1인 약 43.5만 (기숙사 선택 시)</div>
       </div>
       <button onclick="copyFullSchedule()" class="bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] font-extrabold text-sm px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5 active:scale-95 transition">
         <i class="fa-solid fa-copy"></i> 전체 일정 복사
@@ -171,41 +228,35 @@
   </div>
 
   <script>
-    function copyVoteResult() {
-      const name = document.getElementById('voter-name').value.trim() || '동반자';
-      const comment = document.getElementById('voter-comment').value.trim();
-      const selectedVote = document.querySelector('input[name="route_vote"]:checked').value;
+    function updateCalc() {
+      const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
+      const dormLabel = document.getElementById('label-dorm');
+      const hotelLabel = document.getElementById('label-hotel');
+      const calcStay = document.getElementById('calc-first-stay');
+      const calcPersonTotal = document.getElementById('calc-person-total');
+      const calcCoupleTotal = document.getElementById('calc-couple-total');
+      const barSummary = document.getElementById('bar-summary');
 
-      let text = `[무안CC 부부 골프 투어 투표]\n\n`;
-      text += `👤 작성자: ${name}\n`;
-      text += `🗳️ 토요일 하행 코스 선택:\n👉 "${selectedVote}"\n`;
-      if(comment) text += `💬 의견: "${comment}"\n`;
-      text += `\n🔗 전체 상세 일정표 확인:\n${window.location.href}`;
+      let baseCost = 315000 + 120000; // 패키지(315,000) + 공용경비(120,000) = 435,000
 
-      navigator.clipboard.writeText(text).then(() => {
-        alert("선택하신 투표 결과가 복사되었습니다!\n단톡방에 붙여넣어 공유해 주세요.");
-      }).catch(() => {
-        prompt("아래 텍스트를 복사하여 카카오톡에 붙여넣으세요:", text);
-      });
+      if (stayType === 'dorm') {
+        dormLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
+        hotelLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        calcStay.textContent = "0원 (영학 기숙사 찬스)";
+        calcStay.className = "font-bold text-emerald-400";
+        calcPersonTotal.textContent = "약 " + baseCost.toLocaleString() + "원";
+        calcCoupleTotal.textContent = "약 " + (baseCost * 2).toLocaleString() + "원";
+        barSummary.textContent = "1인 약 43.5만 (기숙사 선택 시)";
+      } else {
+        hotelLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
+        dormLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        let total = baseCost + 45000;
+        calcStay.textContent = "+45,000원 (골프텔 2실 추가)";
+        calcStay.className = "font-bold text-amber-300";
+        calcPersonTotal.textContent = "약 " + total.toLocaleString() + "원";
+        calcCoupleTotal.textContent = "약 " + (total * 2).toLocaleString() + "원";
+        barSummary.textContent = "1인 약 48만 (골프텔 2박 시)";
+      }
     }
 
-    function copyFullSchedule() {
-      let text = `[2026 무안CC 2박 3일 부부 골프 확정 일정]\n\n` +
-                 `📅 일정: 11/28(토) ~ 11/30(월)\n` +
-                 `🚗 출발: 토요일 07:00 난곡사거리 집결 출발 (1차 이동)\n` +
-                 `🛏️ 숙소: 토(남악 모아엘가 2차) + 일(무안CC 골프텔 2실)\n` +
-                 `⛳ 골프: 일요일 낮 라운드 + 월요일 오전 라운드 (노캐디 36홀)\n` +
-                 `🐙 미식: 목포 에그타르트, 무안 갯벌낙지직판장 연포탕\n` +
-                 `🍂 상경: 월요일 해미읍성 성곽길 평지 산책 후 귀경\n\n` +
-                 `상세 일정 확인 및 1일차 코스 투표는 아래 링크를 눌러주세요!\n` +
-                 `${window.location.href}`;
-
-      navigator.clipboard.writeText(text).then(() => {
-        alert("전체 일정 요약문이 복사되었습니다!\n단톡방에 바로 붙여넣으실 수 있습니다.");
-      }).catch(() => {
-        prompt("아래 내용을 복사하세요:", text);
-      });
-    }
-  </script>
-</body>
-</html>
+    function copyVote
