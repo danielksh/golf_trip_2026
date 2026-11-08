@@ -75,8 +75,8 @@
               <input type="radio" name="sun_stay_option" value="dorm" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
               <span class="text-base font-bold text-slate-900">기숙사 연박 (0원)</span>
             </div>
-            <span class="text-sm text-slate-700 font-black pl-7">295,000원 / 1인</span>
-            <span class="text-xs text-slate-500 pl-7 mt-0.5">개별부킹(28만)+개별조식(1.5만)</span>
+            <span class="text-sm text-slate-700 font-black pl-7">280,000원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">개별부킹(28만: 그린피+카트비)</span>
           </label>
         </div>
       </div>
@@ -354,12 +354,12 @@
         calcGolfLabel.textContent = "골프 & 숙박(1박2일 패키지: 36홀+골프텔2실+조식)";
         calcGolfCost.textContent = "325,000원";
       } else {
-        // 일요일도 기숙사 연박 (그린피23만+카트5만+개별조식1.5만 = 295,000)
-        golfCost = 295000;
+        // 일요일도 기숙사 연박 (그린피23만+카트5만 = 280,000원)
+        golfCost = 280000;
         optDormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
         optPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
-        calcGolfLabel.textContent = "골프 & 숙박(기숙사 0원 연박+개별 36홀+조식)";
-        calcGolfCost.textContent = "295,000원";
+        calcGolfLabel.textContent = "기숙사 0원 연박+개별 36홀+카트비";
+        calcGolfCost.textContent = "280,000원";
       }
 
       let totalPerson = golfCost + commonCost;
@@ -378,8 +378,8 @@
       const selectedDep = document.querySelector('input[name="departure_vote"]:checked').value;
       const stayOption = document.querySelector('input[name="sun_stay_option"]:checked').value;
       
-      const stayName = (stayOption === 'pkg') ? '일요일 무안CC 골프텔 1박 패키지 (32.5만)' : '일요일도 남악 기숙사 연박 (29.5만)';
-      let totalPerson = (stayOption === 'pkg' ? 325000 : 295000) + 230000;
+      const stayName = (stayOption === 'pkg') ? '일요일 무안CC 골프텔 1박 패키지 (32.5만)' : '기숙사 0원 연박+개별 36홀+카트비 (28만)';
+      let totalPerson = (stayOption === 'pkg' ? 325000 : 280000) + 230000;
 
       let text = `[무안CC 부부 골프 투어 동반자 선택]\n\n`;
       text += `👤 작성자: ${name}\n`;
@@ -399,8 +399,8 @@
 
     function copyFullSchedule() {
       const stayOption = document.querySelector('input[name="sun_stay_option"]:checked').value;
-      let totalPerson = (stayOption === 'pkg' ? 325000 : 295000) + 230000;
-      let stayDesc = (stayOption === 'pkg') ? '금·토(남악 영학 기숙사) + 일(무안CC 골프텔 2실)' : '전 일정 남악 영학 기숙사 (숙박비 0원)';
+      let totalPerson = (stayOption === 'pkg' ? 325000 : 280000) + 230000;
+      let stayDesc = (stayOption === 'pkg') ? '금·토(남악 영학 기숙사) + 일(무안CC 골프텔 2실)' : '전 일정 남악 영학 기숙사 (숙박비 0원 연박)';
 
       let text = `[2026 무안CC 3박 4일 부부 골프 확정 일정]\n\n` +
                  `📅 일정: 11/27(금 저녁) ~ 11/30(월)\n` +
