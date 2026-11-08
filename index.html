@@ -7,227 +7,197 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@500;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@500;700;800;900&display=swap');
     body { 
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
       -webkit-tap-highlight-color: transparent;
-      font-size: 16px; /* 어르신용 시원한 큰 글씨 */
+      font-size: 18px; /* 어르신용 기본 글씨 대폭 확대 */
+      line-height: 1.6;
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-900 pb-36">
+<body class="bg-slate-100 text-slate-900 pb-40">
 
   <!-- 상단 헤더 -->
-  <header class="sticky top-0 z-30 bg-emerald-800 text-white shadow-lg px-4 py-4">
+  <header class="sticky top-0 z-30 bg-emerald-800 text-white shadow-xl px-5 py-4">
     <div class="max-w-xl mx-auto flex items-center justify-between">
       <div>
         <div class="text-sm text-emerald-200 font-bold mb-0.5">
           ⛳ 성호·은남 & 형진·용미 4인 남도 투어
         </div>
-        <h1 class="text-xl font-extrabold tracking-tight">무안CC 36홀 투어 플래너</h1>
+        <h1 class="text-2xl font-black tracking-tight">무안CC 36홀 투어 플래너</h1>
       </div>
-      <span class="text-xs bg-emerald-700 border border-emerald-400/50 px-3 py-1.5 rounded-full font-bold">
-        11/27(금)~30(월)
+      <span class="text-sm bg-emerald-700 border border-emerald-400 px-3 py-1.5 rounded-full font-bold">
+        11/27~30
       </span>
     </div>
   </header>
 
   <!-- 메인 본문 -->
-  <main class="max-w-xl mx-auto px-4 pt-4 space-y-4">
+  <main class="max-w-xl mx-auto px-4 pt-5 space-y-5">
 
     <!-- 1박 숙소 & 골프 방식 선택 실시간 계산기 -->
-    <section class="bg-white rounded-2xl p-5 shadow-md border-2 border-emerald-600 space-y-4">
+    <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-emerald-600 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <span class="text-sm font-extrabold text-emerald-900 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg">
-          <i class="fa-solid fa-calculator text-emerald-600 mr-1"></i> 공식 요금표 기준 실시간 계산기
+        <span class="text-base font-black text-emerald-900 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-xl">
+          <i class="fa-solid fa-calculator text-emerald-600 mr-1.5"></i> 실시간 예상 경비 계산기
         </span>
-        <span class="text-xs font-bold text-slate-500">부부 2인 1실(2실) 기준</span>
+        <span class="text-xs font-bold text-slate-500">2인 1실 2객실 기준</span>
       </div>
 
       <!-- 골프 예약 방식 선택 -->
-      <div class="space-y-1.5">
-        <label class="text-sm font-extrabold text-slate-900 block">
+      <div class="space-y-2">
+        <label class="text-base font-extrabold text-slate-900 block">
           ⛳ 골프 예약 방식 선택:
         </label>
-        <div class="grid grid-cols-2 gap-2">
-          <label id="label-golf-pkg" class="flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition">
-            <div class="flex items-center gap-1.5 mb-1">
-              <input type="radio" name="golf_type" value="pkg" checked onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
-              <span class="text-sm font-bold text-slate-900">1박2일 패키지</span>
+        <div class="grid grid-cols-2 gap-2.5">
+          <label id="label-golf-pkg" class="flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="golf_type" value="pkg" checked onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">1박2일 패키지</span>
             </div>
-            <span class="text-xs text-emerald-700 font-extrabold pl-5.5">325,000원 / 1인</span>
-            <span class="text-[11px] text-slate-500 pl-5.5 mt-0.5">36홀+카트+일요골프텔+조식</span>
+            <span class="text-sm text-emerald-700 font-black pl-7">325,000원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">36홀+카트+일요골프텔+조식</span>
           </label>
 
-          <label id="label-golf-indiv" class="flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
-            <div class="flex items-center gap-1.5 mb-1">
-              <input type="radio" name="golf_type" value="indiv" onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
-              <span class="text-sm font-bold text-slate-900">개별 부킹</span>
+          <label id="label-golf-indiv" class="flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="golf_type" value="indiv" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">개별 부킹</span>
             </div>
-            <span class="text-xs text-slate-700 font-extrabold pl-5.5">320,000원 / 1인</span>
-            <span class="text-[11px] text-slate-500 pl-5.5 mt-0.5">일(14만)+월1부(9만)+골프텔2실</span>
+            <span class="text-sm text-slate-700 font-black pl-7">320,000원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">일(14만)+월1부(9만)+골프텔</span>
           </label>
         </div>
       </div>
 
       <!-- 첫날(1박차) 숙소 결정 -->
-      <div class="space-y-1.5 pt-1">
-        <label class="text-sm font-extrabold text-slate-900 block">
+      <div class="space-y-2 pt-1">
+        <label class="text-base font-extrabold text-slate-900 block">
           🛏️ 첫날(1박차) 숙소 결정:
         </label>
-        <div class="grid grid-cols-2 gap-2">
-          <label id="label-dorm" class="flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition">
-            <div class="flex items-center gap-1.5 mb-1">
-              <input type="radio" name="first_night_stay" value="dorm" checked onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
-              <span class="text-sm font-bold text-slate-900">영학 기숙사</span>
+        <div class="grid grid-cols-2 gap-2.5">
+          <label id="label-dorm" class="flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="first_night_stay" value="dorm" checked onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">영학 기숙사</span>
             </div>
-            <span class="text-xs text-emerald-700 font-extrabold pl-5.5">숙박비 0원 (찬스)</span>
-            <span class="text-[11px] text-slate-500 pl-5.5 mt-0.5">남악 모아엘가 204동</span>
+            <span class="text-sm text-emerald-700 font-black pl-7">숙박비 0원 (찬스)</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">남악 모아엘가 204동</span>
           </label>
 
-          <label id="label-hotel" class="flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
-            <div class="flex items-center gap-1.5 mb-1">
-              <input type="radio" name="first_night_stay" value="hotel" onchange="updateCalc()" class="w-4 h-4 text-emerald-600">
-              <span class="text-sm font-bold text-slate-900">골프텔 2실 추가</span>
+          <label id="label-hotel" class="flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
+            <div class="flex items-center gap-2 mb-1">
+              <input type="radio" name="first_night_stay" value="hotel" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">골프텔 2실 추가</span>
             </div>
-            <span class="text-xs text-amber-700 font-extrabold pl-5.5">+32,500원 / 1인</span>
-            <span class="text-[11px] text-slate-500 pl-5.5 mt-0.5">토욜 주말 2실(13만)</span>
+            <span class="text-sm text-amber-700 font-black pl-7">+32,500원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">토욜 주말 2실(13만 원)</span>
           </label>
         </div>
       </div>
 
       <!-- 실시간 합산 견적 박스 -->
-      <div class="bg-slate-900 text-white rounded-xl p-4 space-y-2 shadow-inner mt-2">
-        <div class="flex justify-between items-center text-xs text-slate-300">
+      <div class="bg-slate-900 text-white rounded-2xl p-4 space-y-2.5 shadow-inner mt-2">
+        <div class="flex justify-between items-center text-sm text-slate-300">
           <span id="calc-golf-label">골프 비용(36홀+카트+일요골프텔+조식)</span>
           <span id="calc-golf-cost" class="font-bold text-slate-100">325,000원</span>
         </div>
-        <div class="flex justify-between items-center text-xs text-slate-300">
+        <div class="flex justify-between items-center text-sm text-slate-300">
           <span>첫날(1박차) 숙박 추가 요금</span>
           <span id="calc-first-stay" class="font-bold text-emerald-400">0원 (기숙사 찬스)</span>
         </div>
-        <div class="flex justify-between items-center text-xs text-slate-300">
+        <div class="flex justify-between items-center text-sm text-slate-300">
           <span>식대·케이블카·교통 예상 공용 경비</span>
           <span class="font-bold text-slate-100">약 120,000원</span>
         </div>
-        <div class="border-t border-slate-700 pt-2 flex justify-between items-end">
+        <div class="border-t border-slate-700 pt-2.5 flex justify-between items-end">
           <div>
-            <div class="text-[11px] text-emerald-400 font-bold">1인당 최종 예상 경비</div>
-            <div id="calc-person-total" class="text-xl font-extrabold text-white">약 445,000원</div>
+            <div class="text-xs text-emerald-400 font-extrabold">1인당 최종 예상 경비</div>
+            <div id="calc-person-total" class="text-2xl font-black text-white">약 445,000원</div>
           </div>
           <div class="text-right">
-            <div class="text-[11px] text-slate-400">부부 2인 기준 합계</div>
-            <div id="calc-couple-total" class="text-base font-extrabold text-amber-300">약 890,000원</div>
+            <div class="text-xs text-slate-400">부부 2인 기준 합계</div>
+            <div id="calc-couple-total" class="text-lg font-black text-amber-300">약 890,000원</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 동반자 투표 섹션 -->
-    <section class="bg-white rounded-2xl p-5 shadow-md border-2 border-amber-400 space-y-4">
-      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
-        <i class="fa-solid fa-square-poll-check text-amber-500 text-xl"></i>
-        <h3 class="text-base font-extrabold text-slate-900">동반자 투표: 출발 시간 & 일정 결정</h3>
+    <!-- 스케줄 선택 탭 안내 -->
+    <div class="space-y-2">
+      <div class="text-base font-black text-slate-900 flex items-center gap-2">
+        <i class="fa-solid fa-map-location-dot text-emerald-700 text-lg"></i> 상세 이동 스케줄 선택
       </div>
+      <div class="grid grid-cols-2 gap-2 bg-slate-200 p-1.5 rounded-2xl">
+        <button onclick="switchPlan('fri')" id="tab-fri" class="py-3 text-base font-black rounded-xl bg-emerald-800 text-white shadow transition">
+          1안) 금요일 저녁 출발
+        </button>
+        <button onclick="switchPlan('sat')" id="tab-sat" class="py-3 text-base font-bold rounded-xl bg-transparent text-slate-700 transition">
+          2안) 토요일 아침 출발
+        </button>
+      </div>
+    </div>
+
+    <!-- [1안] 금요일 저녁 출발 스케줄 컨테이너 -->
+    <section id="plan-fri-container" class="space-y-4">
       
-      <p class="text-sm text-slate-600 font-semibold leading-relaxed">
-        형진 & 용미 부부의 선호하는 출발 시점과 일정을 선택해 주세요!
-      </p>
-
-      <div class="space-y-2.5">
-        <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
-          <input type="radio" name="departure_vote" value="금요일 저녁 7시 동시 출발 (남악 도착 후 토요일 목포 투어)" checked class="w-5 h-5 mt-0.5 text-emerald-600">
-          <span class="text-sm font-bold text-slate-800 leading-snug">
-            [1안] 금요일 저녁 7시 동시 출발 (강력 추천)<br>
-            <span class="text-xs font-normal text-slate-500">
-              • 금요일 밤 도착해 푹 자고, 토요일 아침부터 목포 케이블카·고하도·유달산·에그타르트 풀코스 투어
-            </span>
-          </span>
-        </label>
-
-        <label class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
-          <input type="radio" name="departure_vote" value="토요일 아침 7시 각자 출발 (중간 맛집 집결)" class="w-5 h-5 mt-0.5 text-emerald-600">
-          <span class="text-sm font-bold text-slate-800 leading-snug">
-            [2안] 토요일 아침 7시 각자 출발<br>
-            <span class="text-xs font-normal text-slate-500">
-              • 자차 2대로 출발해 중간(군산 짬뽕 또는 변산 채석강)에서 만나 점심 먹고 남악 이동
-            </span>
-          </span>
-        </label>
-      </div>
-
-      <div class="space-y-2 pt-1">
-        <input type="text" id="voter-name" placeholder="이름 (예: 형진, 은남, 성호)" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-bold focus:outline-none focus:border-emerald-600">
-        <textarea id="voter-comment" rows="2" placeholder="의견을 남겨주세요 (예: 금욜 출발 찬성! 패키지로 편하게 가요)" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:outline-none focus:border-emerald-600"></textarea>
-      </div>
-
-      <button onclick="copyVoteResult()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-base py-3.5 rounded-xl shadow transition active:scale-95 flex items-center justify-center gap-2">
-        <i class="fa-solid fa-comment-dots text-lg"></i> 내 투표 & 선택 카톡으로 보내기
-      </button>
-    </section>
-
-    <!-- 일자별 상세 일정표 -->
-    <section class="space-y-3">
-      <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
-        <i class="fa-regular fa-calendar-check text-emerald-700"></i> 일자별 상세 스케줄
-      </h2>
-
       <!-- 0일차 -->
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-indigo-200 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="bg-indigo-100 text-indigo-900 text-xs font-extrabold px-2.5 py-1 rounded-md">0일차 : 11/27(금 저녁)</span>
+          <span class="bg-indigo-100 text-indigo-900 text-sm font-black px-3 py-1 rounded-lg">0일차 : 11/27(금 저녁)</span>
           <span class="text-xs font-bold text-slate-500">남악 베이스캠프 입실</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">저녁 7시 각자 출발 ➔ 남악 기숙사 입실</h3>
-        <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
-          <li>• <strong>19:00</strong> 1팀(성호·은남), 2팀(형진·용미) 각각 자차로 출발</li>
+        <h3 class="text-xl font-black text-slate-900">저녁 7시 각자 출발 ➔ 남악 기숙사 입실</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
+          <li>• <strong>19:00</strong> 1팀(성호·은남), 2팀(형진·용미) 각각 자차로 수도권 출발</li>
           <li>• <strong>23:00</strong> <strong>남악 모아엘가2차 204동 1101호</strong> 도착 및 주차/입실</li>
-          <li>• <strong>23:00~</strong> 짐 정리 및 가벼운 야식/맥주 한잔 후 꿀잠 (토요일 운전 피로 해소)</li>
+          <li>• <strong>23:00~</strong> 짐 정리 및 가벼운 맥주 한잔 후 취침 (토요일 운전 피로 완전히 해소)</li>
         </ul>
       </div>
 
       <!-- 1일차 -->
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-amber-300 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-2.5 py-1 rounded-md">1일차 : 11/28(토)</span>
-          <span class="text-xs font-bold text-slate-500">목포 관광 & 삼호가든 만찬</span>
+          <span class="bg-amber-100 text-amber-900 text-sm font-black px-3 py-1 rounded-lg">1일차 : 11/28(토)</span>
+          <span class="text-xs font-bold text-amber-800">목포 풀코스 관광 & 삼호가든</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">아점 ➔ 케이블카/유달산 ➔ 에그타르트 ➔ 삼호가든</h3>
-        <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
-          <li>• <strong>10:30~11:30</strong> <strong>[아점]</strong> 목포 로컬 조식 (백반 또는 쫄복지리)</li>
-          <li>• <strong>11:45~14:00</strong> <strong>[목포 해상케이블카]</strong> 북항 ➔ 고하도 바다 산책 ➔ 귀환 길 유달산 정상 전망 감상</li>
-          <li>• <strong>14:30~16:30</strong> 목포 근대역사문화거리 및 목포진/등대 바다 조망</li>
+        <h3 class="text-xl font-black text-slate-900">아점 ➔ 해상케이블카 ➔ 에그타르트 ➔ 삼호가든 만찬</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
+          <li>• <strong>10:30~11:30</strong> <strong>[아점 식사]</strong> 목포 로컬 조식 (백성식당 백반 또는 쫄복지리)</li>
+          <li>• <strong>11:45~14:00</strong> <strong>[목포 해상케이블카]</strong> 북항 탑승 ➔ 고하도 바다 산책 ➔ 귀환 길 유달산 정상 전망 감상</li>
+          <li>• <strong>14:30~16:30</strong> 목포 근대역사문화거리 및 목포진/해안 등대 바다 조망</li>
           <li>• <strong>16:40</strong> 명물 <strong>&lt;커피창고로&gt;</strong> 인생 에그타르트 포장</li>
-          <li>• <strong>17:40</strong> <strong>기숙사 차 주차 완료</strong> (편안하게 술 한잔할 준비 완료!)</li>
+          <li>• <strong>17:40</strong> <strong>기숙사 복귀 후 차 주차 완료</strong> (편안하게 술 한잔할 준비 완료)</li>
           <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침·연포탕에 소주 한잔)</li>
-          <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 티타임 & <strong>내일 골프백/짐 사전 정리 완료!</strong></li>
+          <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 디저트 타임 & <strong>내일 골프백/짐 사전 정리 완료</strong></li>
         </ul>
       </div>
 
       <!-- 2일차 -->
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-emerald-300 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="bg-emerald-100 text-emerald-900 text-xs font-extrabold px-2.5 py-1 rounded-md">2일차 : 11/29(일)</span>
+          <span class="bg-emerald-100 text-emerald-900 text-sm font-black px-3 py-1 rounded-lg">2일차 : 11/29(일)</span>
           <span class="text-xs font-bold text-emerald-700">무안CC 1차 라운드 & 골프텔</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">체크아웃 ➔ 낮 라운드 ➔ 뻘낙지직판장 ➔ 골프텔</h3>
-        <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
+        <h3 class="text-xl font-black text-slate-900">여유로운 체크아웃 ➔ 낮 라운드 ➔ 뻘낙지직판장</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>10:00</strong> 기숙사 최종 체크아웃 ➔ 무안CC 이동 (약 25분)</li>
-          <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (서B ➔ 서A, 셀프)</strong><br><span class="text-xs text-emerald-700 font-bold">*하루 중 가장 따뜻한 낮 12~14℃ 기온에서 플레이</span></li>
+          <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (서B ➔ 서A, 셀프)</strong><br><span class="text-sm text-emerald-700 font-bold">*하루 중 가장 따뜻한 낮 12~14℃ 기온에서 플레이</span></li>
           <li>• <strong>16:30</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
-          <li>• <strong>17:00</strong> <strong>[저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이, 연포탕 만찬)</li>
+          <li>• <strong>17:00</strong> <strong>[이른 저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이, 연포탕 만찬)</li>
           <li>• <strong>19:00</strong> <strong>무안CC 클럽하우스 골프텔 체크인 (부부별 2실)</strong> 및 휴식</li>
         </ul>
       </div>
 
       <!-- 3일차 -->
-      <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-2">
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-blue-300 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="bg-blue-100 text-blue-900 text-xs font-extrabold px-2.5 py-1 rounded-md">3일차 : 11/30(월)</span>
+          <span class="bg-blue-100 text-blue-900 text-sm font-black px-3 py-1 rounded-lg">3일차 : 11/30(월)</span>
           <span class="text-xs font-bold text-slate-500">2차 라운드 & 해미읍성 & 귀경</span>
         </div>
-        <h3 class="text-base font-bold text-slate-900">조식 ➔ 2차 라운드 ➔ 해미읍성 산책 ➔ 안전 귀가</h3>
-        <ul class="text-sm text-slate-700 space-y-1.5 pt-1 pl-1 leading-relaxed">
+        <h3 class="text-xl font-black text-slate-900">클럽하우스 조식 ➔ 2차 라운드 ➔ 해미읍성 산책</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>07:30</strong> 골프텔 체크아웃 및 클럽하우스 조식 (패키지 포함)</li>
           <li>• <strong>08:34 전후</strong> <strong>무안CC 2차 18홀 라운드 (서A ➔ 서B, 셀프)</strong></li>
           <li>• <strong>13:00</strong> 라운드 종료 및 샤워 후 상경 출발 (차량 2대 각자 이동)</li>
@@ -236,24 +206,147 @@
           <li>• <strong>20:30~21:00</strong> 각자 자택 안전 복귀 및 투어 종료</li>
         </ul>
       </div>
+
+    </section>
+
+    <!-- [2안] 토요일 아침 출발 스케줄 컨테이너 (초기 숨김) -->
+    <section id="plan-sat-container" class="space-y-4 hidden">
+      
+      <!-- 1일차 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-amber-300 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="bg-amber-100 text-amber-900 text-sm font-black px-3 py-1 rounded-lg">1일차 : 11/28(토)</span>
+          <span class="text-xs font-bold text-amber-800">서해안 투어 & 중간 집결</span>
+        </div>
+        <h3 class="text-xl font-black text-slate-900">아침 7시 각자 출발 ➔ 중간 맛집 집결 ➔ 남악 입실</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
+          <li>• <strong>07:00</strong> 1팀, 2팀 각각 자차로 수도권 출발 (서해안선 진입)</li>
+          <li>• <strong>11:30~13:30</strong> <strong>[중간 집결 및 점심 식사]</strong><br>
+            - 군산 짬뽕 맛집 + &lt;이성당&gt; 빵 쇼핑 또는<br>
+            - 변산반도 채석강 백반 점심 + 채석강 바다 산책</li>
+          <li>• <strong>14:00</strong> 2대 함께 서해안고속도로 타고 목포 방면 이동</li>
+          <li>• <strong>16:30</strong> 목포 명물 <strong>&lt;커피창고로&gt;</strong> 에그타르트 포장</li>
+          <li>• <strong>17:40</strong> <strong>남악 모아엘가2차 기숙사 도착 및 입실</strong></li>
+          <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침·연포탕)</li>
+          <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 티타임 및 내일 골프 짐 정리</li>
+        </ul>
+      </div>
+
+      <!-- 2일차 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-emerald-300 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="bg-emerald-100 text-emerald-900 text-sm font-black px-3 py-1 rounded-lg">2일차 : 11/29(일)</span>
+          <span class="text-xs font-bold text-emerald-700">무안CC 1차 라운드 & 골프텔</span>
+        </div>
+        <h3 class="text-xl font-black text-slate-900">체크아웃 ➔ 낮 라운드 ➔ 뻘낙지직판장 ➔ 골프텔</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
+          <li>• <strong>10:00</strong> 기숙사 체크아웃 ➔ 무안CC 이동 (약 25분)</li>
+          <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (서B ➔ 서A, 셀프)</strong></li>
+          <li>• <strong>16:30</strong> 라운드 종료 및 사우나 샤워</li>
+          <li>• <strong>17:00</strong> <strong>[이른 저녁] &lt;무안 갯벌낙지직판장&gt;</strong> 연포탕·탕탕이</li>
+          <li>• <strong>19:00</strong> <strong>무안CC 골프텔 2실 입실</strong> 및 편안한 휴식</li>
+        </ul>
+      </div>
+
+      <!-- 3일차 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-blue-300 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="bg-blue-100 text-blue-900 text-sm font-black px-3 py-1 rounded-lg">3일차 : 11/30(월)</span>
+          <span class="text-xs font-bold text-slate-500">2차 라운드 & 해미읍성 & 귀경</span>
+        </div>
+        <h3 class="text-xl font-black text-slate-900">조식 ➔ 2차 라운드 ➔ 해미읍성 산책 ➔ 안전 귀가</h3>
+        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
+          <li>• <strong>07:30</strong> 골프텔 체크아웃 및 조식 (패키지 포함)</li>
+          <li>• <strong>08:34 전후</strong> <strong>무안CC 2차 18홀 라운드 (서A ➔ 서B, 셀프)</strong></li>
+          <li>• <strong>13:00</strong> 라운드 종료 후 상경 출발</li>
+          <li>• <strong>15:30~16:30</strong> <strong>서산 &lt;해미읍성&gt;</strong> 성곽길 평지 산책</li>
+          <li>• <strong>18:30</strong> 상경길 저녁 식사 후 각자 자택 복귀</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- 동반자 투표 및 의견 등록 -->
+    <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-amber-400 space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+        <i class="fa-solid fa-square-poll-check text-amber-500 text-2xl"></i>
+        <h3 class="text-lg font-black text-slate-900">동반자 투표: 선호하는 일정 선택</h3>
+      </div>
+      
+      <p class="text-base text-slate-700 font-bold leading-relaxed">
+        형진 & 용미 부부의 선호하는 출발 시점과 숙소를 선택해 주세요!
+      </p>
+
+      <div class="space-y-3">
+        <label class="flex items-start gap-3 p-4 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
+          <input type="radio" name="departure_vote" value="1안) 금요일 저녁 7시 출발 (토요일 목포 투어)" checked class="w-6 h-6 mt-0.5 text-emerald-600">
+          <span class="text-base font-black text-slate-800 leading-snug">
+            [1안] 금요일 저녁 7시 동시 출발 (강력 추천)<br>
+            <span class="text-sm font-medium text-slate-600">
+              • 금요일 밤 도착 후 푹 자고, 토요일 아침부터 목포 케이블카·고하도·유달산·에그타르트 풀코스 투어
+            </span>
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3 p-4 rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-emerald-50 cursor-pointer">
+          <input type="radio" name="departure_vote" value="2안) 토요일 아침 7시 각자 출발 (중간 맛집 집결)" class="w-6 h-6 mt-0.5 text-emerald-600">
+          <span class="text-base font-black text-slate-800 leading-snug">
+            [2안] 토요일 아침 7시 각자 출발<br>
+            <span class="text-sm font-medium text-slate-600">
+              • 자차 2대로 출발해 중간(군산 짬뽕 또는 변산 채석강)에서 만나 점심 먹고 남악 이동
+            </span>
+          </span>
+        </label>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <input type="text" id="voter-name" placeholder="작성자 이름 (예: 형진, 용미, 은남, 성호)" class="w-full border-2 border-slate-300 rounded-2xl px-4 py-3 text-base font-bold focus:outline-none focus:border-emerald-600">
+        <textarea id="voter-comment" rows="2" placeholder="한 줄 의견을 남겨주세요 (예: 금욜 저녁 출발해서 토욜에 케이블카 타고 싶어요!)" class="w-full border-2 border-slate-300 rounded-2xl p-3.5 text-base focus:outline-none focus:border-emerald-600"></textarea>
+      </div>
+
+      <button onclick="copyVoteResult()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg py-4 rounded-2xl shadow-md transition active:scale-95 flex items-center justify-center gap-2">
+        <i class="fa-solid fa-comment-dots text-xl"></i> 내 투표 결과 카톡으로 보내기
+      </button>
     </section>
 
   </main>
 
   <!-- 하단 고정 카카오톡 복사 바 -->
-  <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-3 shadow-lg">
+  <div class="fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 px-5 py-3.5 shadow-2xl">
     <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
       <div class="flex-1 truncate">
-        <div class="text-xs text-slate-500 font-bold">11/27~30 무안CC 36홀</div>
-        <div id="bar-summary" class="text-sm font-extrabold text-emerald-800 truncate">1인 약 44.5만 (패키지+기숙사)</div>
+        <div class="text-xs text-slate-500 font-extrabold">11/27~30 무안CC 36홀</div>
+        <div id="bar-summary" class="text-base font-black text-emerald-800 truncate">1인 약 44.5만 (패키지+기숙사)</div>
       </div>
-      <button onclick="copyFullSchedule()" class="bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] font-extrabold text-sm px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5 active:scale-95 transition">
+      <button onclick="copyFullSchedule()" class="bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] font-black text-base px-5 py-3 rounded-2xl shadow flex items-center gap-2 active:scale-95 transition">
         <i class="fa-solid fa-copy"></i> 전체 일정 복사
       </button>
     </div>
   </div>
 
   <script>
+    let activePlan = 'fri';
+
+    function switchPlan(plan) {
+      activePlan = plan;
+      const tabFri = document.getElementById('tab-fri');
+      const tabSat = document.getElementById('tab-sat');
+      const containerFri = document.getElementById('plan-fri-container');
+      const containerSat = document.getElementById('plan-sat-container');
+
+      if (plan === 'fri') {
+        tabFri.className = "py-3 text-base font-black rounded-xl bg-emerald-800 text-white shadow transition";
+        tabSat.className = "py-3 text-base font-bold rounded-xl bg-transparent text-slate-700 transition";
+        containerFri.classList.remove('hidden');
+        containerSat.classList.add('hidden');
+      } else {
+        tabSat.className = "py-3 text-base font-black rounded-xl bg-emerald-800 text-white shadow transition";
+        tabFri.className = "py-3 text-base font-bold rounded-xl bg-transparent text-slate-700 transition";
+        containerSat.classList.remove('hidden');
+        containerFri.classList.add('hidden');
+      }
+    }
+
     function updateCalc() {
       const golfType = document.querySelector('input[name="golf_type"]:checked').value;
       const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
@@ -273,13 +366,13 @@
       // 1. 골프 비용 계산
       let golfCost = (golfType === 'pkg') ? 325000 : 320000;
       if (golfType === 'pkg') {
-        golfPkgLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
-        golfIndivLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        golfPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        golfIndivLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
         calcGolfLabel.textContent = "1박2일 패키지(36홀+카트+일요골프텔+조식)";
         calcGolfCost.textContent = "325,000원";
       } else {
-        golfIndivLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
-        golfPkgLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        golfIndivLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        golfPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
         calcGolfLabel.textContent = "개별 부킹(그린피23만+카트5만+골프텔2.5만+조식1.5만)";
         calcGolfCost.textContent = "320,000원";
       }
@@ -287,13 +380,13 @@
       // 2. 첫날 숙소 비용 계산 (토요일 주말 요금 2실 13만 -> 1인당 32,500원)
       let stayExtra = (stayType === 'dorm') ? 0 : 32500;
       if (stayType === 'dorm') {
-        dormLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
-        hotelLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        dormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        hotelLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
         calcStay.textContent = "0원 (영학 기숙사 찬스)";
         calcStay.className = "font-bold text-emerald-400";
       } else {
-        hotelLabel.className = "flex flex-col p-3 rounded-xl border-2 border-emerald-600 bg-emerald-50/70 cursor-pointer transition";
-        dormLabel.className = "flex flex-col p-3 rounded-xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        hotelLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        dormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
         calcStay.textContent = "+32,500원 (토욜 주말 2실 추가)";
         calcStay.className = "font-bold text-amber-300";
       }
@@ -344,7 +437,7 @@
       const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
       let base = (golfType === 'pkg' ? 325000 : 320000) + (stayType === 'dorm' ? 0 : 32500) + 120000;
 
-      let text = `[2026 무안CC 3박 4일(실 2박3일) 부부 골프 확정 일정]\n\n` +
+      let text = `[2026 무안CC 3박 4일 부부 골프 확정 일정]\n\n` +
                  `📅 일정: 11/27(금 저녁) ~ 11/30(월)\n` +
                  `🚗 이동: 자차 2대로 각자 편안하게 이동\n` +
                  `🛏️ 숙소: 토(남악 영학 기숙사) + 일(무안CC 골프텔 2실)\n` +
