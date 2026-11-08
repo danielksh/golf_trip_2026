@@ -11,7 +11,7 @@
     body { 
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
       -webkit-tap-highlight-color: transparent;
-      font-size: 18px; /* 어르신용 기본 글씨 대폭 확대 */
+      font-size: 18px; /* 어르신용 시원한 큰 글씨 */
       line-height: 1.6;
     }
   </style>
@@ -36,7 +36,7 @@
   <!-- 메인 본문 -->
   <main class="max-w-xl mx-auto px-4 pt-5 space-y-5">
 
-    <!-- 1박 숙소 & 골프 방식 선택 실시간 계산기 -->
+    <!-- 일요일 숙박 결정 & 실시간 비용 계산기 -->
     <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-emerald-600 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <span class="text-base font-black text-emerald-900 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-xl">
@@ -45,54 +45,38 @@
         <span class="text-xs font-bold text-slate-500">2인 1실 2객실 기준</span>
       </div>
 
-      <!-- 골프 예약 방식 선택 -->
-      <div class="space-y-2">
-        <label class="text-base font-extrabold text-slate-900 block">
-          ⛳ 골프 예약 방식 선택:
-        </label>
-        <div class="grid grid-cols-2 gap-2.5">
-          <label id="label-golf-pkg" class="flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition">
-            <div class="flex items-center gap-2 mb-1">
-              <input type="radio" name="golf_type" value="pkg" checked onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
-              <span class="text-base font-bold text-slate-900">1박2일 패키지</span>
-            </div>
-            <span class="text-sm text-emerald-700 font-black pl-7">325,000원 / 1인</span>
-            <span class="text-xs text-slate-500 pl-7 mt-0.5">36홀+카트+일요골프텔+조식</span>
-          </label>
-
-          <label id="label-golf-indiv" class="flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
-            <div class="flex items-center gap-2 mb-1">
-              <input type="radio" name="golf_type" value="indiv" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
-              <span class="text-base font-bold text-slate-900">개별 부킹</span>
-            </div>
-            <span class="text-sm text-slate-700 font-black pl-7">320,000원 / 1인</span>
-            <span class="text-xs text-slate-500 pl-7 mt-0.5">일(14만)+월1부(9만)+골프텔</span>
-          </label>
+      <!-- 기본 숙소 공지 -->
+      <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 text-sm text-slate-600">
+        <div class="flex items-center gap-2 font-bold text-slate-800 mb-1">
+          <i class="fa-solid fa-circle-info text-emerald-600"></i> 기본 숙박 안내 (금·토요일)
         </div>
+        <p class="leading-relaxed">
+          금·토요일 밤은 <strong>남악 영학이 기숙사(모아엘가 2차 204동 1101호)</strong>를 이용하므로 숙박비가 <strong>0원</strong>입니다. 아래에서 <strong>일요일 밤 숙소</strong>를 선택해 주세요.
+        </p>
       </div>
 
-      <!-- 첫날(1박차) 숙소 결정 -->
+      <!-- 일요일 밤 숙소 결정 선택지 -->
       <div class="space-y-2 pt-1">
         <label class="text-base font-extrabold text-slate-900 block">
-          🛏️ 첫날(1박차) 숙소 결정:
+          🛏️ 일요일 밤 숙소 & 골프 방식 결정:
         </label>
         <div class="grid grid-cols-2 gap-2.5">
-          <label id="label-dorm" class="flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition">
+          <label id="label-opt-pkg" class="flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition">
             <div class="flex items-center gap-2 mb-1">
-              <input type="radio" name="first_night_stay" value="dorm" checked onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
-              <span class="text-base font-bold text-slate-900">영학 기숙사</span>
+              <input type="radio" name="sun_stay_option" value="pkg" checked onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">골프텔 1박 패키지</span>
             </div>
-            <span class="text-sm text-emerald-700 font-black pl-7">숙박비 0원 (찬스)</span>
-            <span class="text-xs text-slate-500 pl-7 mt-0.5">남악 모아엘가 204동</span>
+            <span class="text-sm text-emerald-700 font-black pl-7">325,000원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">36홀+카트+골프텔2실+조식</span>
           </label>
 
-          <label id="label-hotel" class="flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
+          <label id="label-opt-dorm" class="flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition">
             <div class="flex items-center gap-2 mb-1">
-              <input type="radio" name="first_night_stay" value="hotel" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
-              <span class="text-base font-bold text-slate-900">골프텔 2실 추가</span>
+              <input type="radio" name="sun_stay_option" value="dorm" onchange="updateCalc()" class="w-5 h-5 text-emerald-600">
+              <span class="text-base font-bold text-slate-900">기숙사 연박 (0원)</span>
             </div>
-            <span class="text-sm text-amber-700 font-black pl-7">+32,500원 / 1인</span>
-            <span class="text-xs text-slate-500 pl-7 mt-0.5">토욜 주말 2실(13만 원)</span>
+            <span class="text-sm text-slate-700 font-black pl-7">295,000원 / 1인</span>
+            <span class="text-xs text-slate-500 pl-7 mt-0.5">개별부킹(28만)+개별조식(1.5만)</span>
           </label>
         </div>
       </div>
@@ -100,25 +84,24 @@
       <!-- 실시간 합산 견적 박스 -->
       <div class="bg-slate-900 text-white rounded-2xl p-4 space-y-2.5 shadow-inner mt-2">
         <div class="flex justify-between items-center text-sm text-slate-300">
-          <span id="calc-golf-label">골프 비용(36홀+카트+일요골프텔+조식)</span>
+          <span id="calc-golf-label">골프 & 일요숙박(패키지 36홀+골프텔2실+조식)</span>
           <span id="calc-golf-cost" class="font-bold text-slate-100">325,000원</span>
         </div>
         <div class="flex justify-between items-center text-sm text-slate-300">
-          <span>첫날(1박차) 숙박 추가 요금</span>
-          <span id="calc-first-stay" class="font-bold text-emerald-400">0원 (기숙사 찬스)</span>
+          <span>공용 경비 (식사 7끼+만찬2회+주류+케이블카)</span>
+          <span class="font-bold text-amber-300">230,000원</span>
         </div>
-        <div class="flex justify-between items-center text-sm text-slate-300">
-          <span>식대·케이블카·교통 예상 공용 경비</span>
-          <span class="font-bold text-slate-100">약 120,000원</span>
+        <div class="text-[11px] text-slate-400 pl-1">
+          * 삼호가든 낙지초무침, 갯벌낙지탕탕이·연포탕, 짚불구이, 에그타르트, 케이블카 포함
         </div>
         <div class="border-t border-slate-700 pt-2.5 flex justify-between items-end">
           <div>
-            <div class="text-xs text-emerald-400 font-extrabold">1인당 최종 예상 경비</div>
-            <div id="calc-person-total" class="text-2xl font-black text-white">약 445,000원</div>
+            <div class="text-xs text-emerald-400 font-extrabold">1인당 최종 예상 총액</div>
+            <div id="calc-person-total" class="text-2xl font-black text-white">약 555,000원</div>
           </div>
           <div class="text-right">
             <div class="text-xs text-slate-400">부부 2인 기준 합계</div>
-            <div id="calc-couple-total" class="text-lg font-black text-amber-300">약 890,000원</div>
+            <div id="calc-couple-total" class="text-lg font-black text-amber-300">약 1,110,000원</div>
           </div>
         </div>
       </div>
@@ -186,7 +169,7 @@
           <li>• <strong>11:20 전후</strong> <strong>무안CC 1차 18홀 라운드 (서B ➔ 서A, 셀프)</strong><br><span class="text-sm text-emerald-700 font-bold">*하루 중 가장 따뜻한 낮 12~14℃ 기온에서 플레이</span></li>
           <li>• <strong>16:30</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>17:00</strong> <strong>[이른 저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이, 연포탕 만찬)</li>
-          <li>• <strong>19:00</strong> <strong>무안CC 클럽하우스 골프텔 체크인 (부부별 2실)</strong> 및 휴식</li>
+          <li>• <strong>19:00</strong> <strong>무안CC 클럽하우스 골프텔 체크인 (부부별 2실)</strong> 및 휴식<br><span class="text-xs text-slate-500">*기숙사 선택 시 남악 기숙사로 복귀하여 취침</span></li>
         </ul>
       </div>
 
@@ -196,7 +179,7 @@
           <span class="bg-blue-100 text-blue-900 text-sm font-black px-3 py-1 rounded-lg">3일차 : 11/30(월)</span>
           <span class="text-xs font-bold text-slate-500">2차 라운드 & 해미읍성 & 귀경</span>
         </div>
-        <h3 class="text-xl font-black text-slate-900">클럽하우스 조식 ➔ 2차 라운드 ➔ 해미읍성 산책</h3>
+        <h3 class="text-xl font-black text-slate-900">조식 ➔ 2차 라운드 ➔ 해미읍성 산책 ➔ 안전 귀가</h3>
         <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>07:30</strong> 골프텔 체크아웃 및 클럽하우스 조식 (패키지 포함)</li>
           <li>• <strong>08:34 전후</strong> <strong>무안CC 2차 18홀 라운드 (서A ➔ 서B, 셀프)</strong></li>
@@ -274,7 +257,7 @@
       </div>
       
       <p class="text-base text-slate-700 font-bold leading-relaxed">
-        형진 & 용미 부부의 선호하는 출발 시점과 숙소를 선택해 주세요!
+        형진 & 용미 부부의 선호하는 출발 시점과 일요일 숙소를 선택해 주세요!
       </p>
 
       <div class="space-y-3">
@@ -301,7 +284,7 @@
 
       <div class="space-y-2 pt-1">
         <input type="text" id="voter-name" placeholder="작성자 이름 (예: 형진, 용미, 은남, 성호)" class="w-full border-2 border-slate-300 rounded-2xl px-4 py-3 text-base font-bold focus:outline-none focus:border-emerald-600">
-        <textarea id="voter-comment" rows="2" placeholder="한 줄 의견을 남겨주세요 (예: 금욜 저녁 출발해서 토욜에 케이블카 타고 싶어요!)" class="w-full border-2 border-slate-300 rounded-2xl p-3.5 text-base focus:outline-none focus:border-emerald-600"></textarea>
+        <textarea id="voter-comment" rows="2" placeholder="한 줄 의견을 남겨주세요 (예: 금욜 저녁 출발 찬성! 일요일은 골프텔에서 편하게 자요)" class="w-full border-2 border-slate-300 rounded-2xl p-3.5 text-base focus:outline-none focus:border-emerald-600"></textarea>
       </div>
 
       <button onclick="copyVoteResult()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg py-4 rounded-2xl shadow-md transition active:scale-95 flex items-center justify-center gap-2">
@@ -316,7 +299,7 @@
     <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
       <div class="flex-1 truncate">
         <div class="text-xs text-slate-500 font-extrabold">11/27~30 무안CC 36홀</div>
-        <div id="bar-summary" class="text-base font-black text-emerald-800 truncate">1인 약 44.5만 (패키지+기숙사)</div>
+        <div id="bar-summary" class="text-base font-black text-emerald-800 truncate">1인 약 55.5만 (패키지+공용경비)</div>
       </div>
       <button onclick="copyFullSchedule()" class="bg-[#FEE500] hover:bg-[#FADA0A] text-[#191919] font-black text-base px-5 py-3 rounded-2xl shadow flex items-center gap-2 active:scale-95 transition">
         <i class="fa-solid fa-copy"></i> 전체 일정 복사
@@ -348,104 +331,86 @@
     }
 
     function updateCalc() {
-      const golfType = document.querySelector('input[name="golf_type"]:checked').value;
-      const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
+      const stayOption = document.querySelector('input[name="sun_stay_option"]:checked').value;
       
-      const golfPkgLabel = document.getElementById('label-golf-pkg');
-      const golfIndivLabel = document.getElementById('label-golf-indiv');
-      const dormLabel = document.getElementById('label-dorm');
-      const hotelLabel = document.getElementById('label-hotel');
+      const optPkgLabel = document.getElementById('label-opt-pkg');
+      const optDormLabel = document.getElementById('label-opt-dorm');
       
       const calcGolfLabel = document.getElementById('calc-golf-label');
       const calcGolfCost = document.getElementById('calc-golf-cost');
-      const calcStay = document.getElementById('calc-first-stay');
       const calcPersonTotal = document.getElementById('calc-person-total');
       const calcCoupleTotal = document.getElementById('calc-couple-total');
       const barSummary = document.getElementById('bar-summary');
 
-      // 1. 골프 비용 계산
-      let golfCost = (golfType === 'pkg') ? 325000 : 320000;
-      if (golfType === 'pkg') {
-        golfPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
-        golfIndivLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
-        calcGolfLabel.textContent = "1박2일 패키지(36홀+카트+일요골프텔+조식)";
+      // 공용경비 230,000원
+      let commonCost = 230000;
+      let golfCost = 0;
+
+      if (stayOption === 'pkg') {
+        // 일요일 골프텔 1박 패키지 (315,000 + 노캐디 10,000 = 325,000)
+        golfCost = 325000;
+        optPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        optDormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        calcGolfLabel.textContent = "골프 & 숙박(1박2일 패키지: 36홀+골프텔2실+조식)";
         calcGolfCost.textContent = "325,000원";
       } else {
-        golfIndivLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
-        golfPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
-        calcGolfLabel.textContent = "개별 부킹(그린피23만+카트5만+골프텔2.5만+조식1.5만)";
-        calcGolfCost.textContent = "320,000원";
+        // 일요일도 기숙사 연박 (그린피23만+카트5만+개별조식1.5만 = 295,000)
+        golfCost = 295000;
+        optDormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
+        optPkgLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
+        calcGolfLabel.textContent = "골프 & 숙박(기숙사 0원 연박+개별 36홀+조식)";
+        calcGolfCost.textContent = "295,000원";
       }
 
-      // 2. 첫날 숙소 비용 계산 (토요일 주말 요금 2실 13만 -> 1인당 32,500원)
-      let stayExtra = (stayType === 'dorm') ? 0 : 32500;
-      if (stayType === 'dorm') {
-        dormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
-        hotelLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
-        calcStay.textContent = "0원 (영학 기숙사 찬스)";
-        calcStay.className = "font-bold text-emerald-400";
-      } else {
-        hotelLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-emerald-600 bg-emerald-50/80 cursor-pointer transition";
-        dormLabel.className = "flex flex-col p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50 cursor-pointer transition";
-        calcStay.textContent = "+32,500원 (토욜 주말 2실 추가)";
-        calcStay.className = "font-bold text-amber-300";
-      }
-
-      // 3. 총합 계산 (공용경비 12만 원)
-      let commonCost = 120000;
-      let totalPerson = golfCost + stayExtra + commonCost;
+      let totalPerson = golfCost + commonCost;
       let totalCouple = totalPerson * 2;
 
       calcPersonTotal.textContent = "약 " + totalPerson.toLocaleString() + "원";
       calcCoupleTotal.textContent = "약 " + totalCouple.toLocaleString() + "원";
 
-      let golfText = (golfType === 'pkg') ? '패키지' : '개별';
-      let stayText = (stayType === 'dorm') ? '기숙사' : '골프텔';
-      barSummary.textContent = `1인 약 ${(totalPerson/10000).toFixed(1)}만 (${golfText}+${stayText})`;
+      let stayText = (stayOption === 'pkg') ? '일요골프텔' : '기숙사연박';
+      barSummary.textContent = `1인 약 ${(totalPerson/10000).toFixed(1)}만 (${stayText}+만찬경비)`;
     }
 
     function copyVoteResult() {
       const name = document.getElementById('voter-name').value.trim() || '동반자';
       const comment = document.getElementById('voter-comment').value.trim();
       const selectedDep = document.querySelector('input[name="departure_vote"]:checked').value;
-      const golfType = document.querySelector('input[name="golf_type"]:checked').value;
-      const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
+      const stayOption = document.querySelector('input[name="sun_stay_option"]:checked').value;
       
-      const golfName = (golfType === 'pkg') ? '1박2일 패키지 (32.5만)' : '개별 부킹 (32만)';
-      const stayName = (stayType === 'dorm') ? '영학 기숙사 (0원 찬스)' : '무안CC 골프텔 2실 추가 (+32,500원)';
-      
-      let base = (golfType === 'pkg' ? 325000 : 320000) + (stayType === 'dorm' ? 0 : 32500) + 120000;
+      const stayName = (stayOption === 'pkg') ? '일요일 무안CC 골프텔 1박 패키지 (32.5만)' : '일요일도 남악 기숙사 연박 (29.5만)';
+      let totalPerson = (stayOption === 'pkg' ? 325000 : 295000) + 230000;
 
       let text = `[무안CC 부부 골프 투어 동반자 선택]\n\n`;
       text += `👤 작성자: ${name}\n`;
       text += `🚗 출발 일정 선택: ${selectedDep}\n`;
-      text += `⛳ 골프 방식: ${golfName}\n`;
-      text += `🛏️ 1박차 숙소: ${stayName}\n`;
-      text += `💰 예상 경비: 1인 약 ${(base/10000).toFixed(1)}만 원 (부부 약 ${(base*2/10000).toFixed(1)}만 원)\n`;
+      text += `🛏️ 일요일 숙소 선택: ${stayName}\n`;
+      text += `💰 1인 총예상 경비: 약 ${(totalPerson/10000).toFixed(1)}만 원 (부부 약 ${(totalPerson*2/10000).toFixed(1)}만 원)\n`;
+      text += `   * 식사 7끼(삼호가든 낙지초무침, 갯벌낙지 직판장 탕탕이·연포탕, 짚불구이)+주류+케이블카 공용경비 23만 원 포함\n`;
       if(comment) text += `💬 의견: "${comment}"\n`;
       text += `\n🔗 전체 상세 일정표 및 비용 계산기:\n${window.location.href}`;
 
       navigator.clipboard.writeText(text).then(() => {
-        alert("선택하신 투표 및 숙소 견적 결과가 복사되었습니다!\n단톡방에 붙여넣어 주세요.");
+        alert("선택하신 투표 및 견적 결과가 복사되었습니다!\n단톡방에 붙여넣어 주세요.");
       }).catch(() => {
         prompt("아래 텍스트를 복사하여 카카오톡에 붙여넣으세요:", text);
       });
     }
 
     function copyFullSchedule() {
-      const golfType = document.querySelector('input[name="golf_type"]:checked').value;
-      const stayType = document.querySelector('input[name="first_night_stay"]:checked').value;
-      let base = (golfType === 'pkg' ? 325000 : 320000) + (stayType === 'dorm' ? 0 : 32500) + 120000;
+      const stayOption = document.querySelector('input[name="sun_stay_option"]:checked').value;
+      let totalPerson = (stayOption === 'pkg' ? 325000 : 295000) + 230000;
+      let stayDesc = (stayOption === 'pkg') ? '금·토(남악 영학 기숙사) + 일(무안CC 골프텔 2실)' : '전 일정 남악 영학 기숙사 (숙박비 0원)';
 
       let text = `[2026 무안CC 3박 4일 부부 골프 확정 일정]\n\n` +
                  `📅 일정: 11/27(금 저녁) ~ 11/30(월)\n` +
                  `🚗 이동: 자차 2대로 각자 편안하게 이동\n` +
-                 `🛏️ 숙소: 토(남악 영학 기숙사) + 일(무안CC 골프텔 2실)\n` +
+                 `🛏️ 숙소: ${stayDesc}\n` +
                  `⛳ 골프: 일 낮 18홀 + 월 오전 18홀 (노캐디 셀프 36홀)\n` +
                  `🚠 관광: 목포 해상케이블카, 고하도 산책, 유달산 정상 조망\n` +
-                 `🐙 미식: 커피창고로 에그타르트, 삼호가든 낙지초무침, 갯벌낙지 탕탕이\n` +
-                 `💰 예상 비용: 1인 약 ${(base/10000).toFixed(1)}만 원 선\n\n` +
-                 `상세 일정 및 1박 숙소 옵션 선택은 아래 링크를 눌러주세요!\n` +
+                 `🐙 미식: 삼호가든 낙지초무침, 갯벌낙지 탕탕이·연포탕, 짚불구이, 에그타르트\n` +
+                 `💰 1인 총예상 경비: 약 ${(totalPerson/10000).toFixed(1)}만 원 (공용경비 23만 원 포함)\n\n` +
+                 `상세 일정 및 옵션 선택은 아래 링크를 눌러주세요!\n` +
                  `${window.location.href}`;
 
       navigator.clipboard.writeText(text).then(() => {
