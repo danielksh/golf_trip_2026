@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>2026 무안CC 부부 골프 투어 최종 확정 일정표</title>
+  <title>2026 무안CC 골프 투어 최종 확정 일정표</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -11,7 +11,7 @@
     body { 
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; 
       -webkit-tap-highlight-color: transparent;
-      font-size: 18px; /* 어르신용 큰 글씨 */
+      font-size: 20px; /* 어르신용 큰 글씨 */
       line-height: 1.6;
     }
   </style>
@@ -40,7 +40,7 @@
     <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-emerald-600 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <span class="text-base font-black text-emerald-900 bg-emerald-50 border border-emerald-200 px-3.5 py-1 rounded-xl">
-          <i class="fa-solid fa-calendar-check text-emerald-600 mr-1.5"></i> 무안CC 예약 확정 내역
+          <i class="fa-solid fa-calendar-check text-emerald-600 mr-1.5"></i> 무안CC 공식 예약 내역
         </span>
         <span class="text-xs font-bold text-slate-500">18홀 셀프 (노캐디)</span>
       </div>
@@ -55,7 +55,7 @@
           </div>
           <div class="text-right">
             <span class="text-xs text-emerald-700 font-extrabold">낮 기온 13~14℃</span>
-            <div class="text-sm font-black text-slate-800">가장 따뜻한 시간대</div>
+            <div class="text-sm font-black text-slate-800">가장 포근한 낮 시간</div>
           </div>
         </div>
 
@@ -124,23 +124,62 @@
       <div class="bg-white rounded-3xl p-6 shadow-sm border-2 border-amber-300 space-y-3">
         <div class="flex items-center justify-between">
           <span class="bg-amber-100 text-amber-900 text-sm font-black px-3 py-1 rounded-lg">1일차 : 11/28(토)</span>
-          <span class="text-xs font-bold text-amber-800">목포 합류 & 관광 & 삼호가든</span>
+          <span class="text-xs font-bold text-amber-800">목포·무안 집결 & 관광 & 삼호가든</span>
         </div>
-        <h3 class="text-xl font-black text-slate-900">목포 집결 ➔ 케이블카 ➔ 에그타르트 ➔ 삼호가든 만찬</h3>
         
-        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-sm text-slate-700 space-y-1">
-          <div class="font-black text-slate-900">🚗 2팀(형진·용미) 이동:</div>
-          <div>• <strong>07:00</strong> 난곡 출발 ➔ 서해안선 이동 ➔ <strong>12:30~13:00</strong> 목포 도착 후 합류</div>
+        <h3 class="text-xl font-black text-slate-900">토요일 일정 옵션 선택</h3>
+
+        <!-- 토요일 A/B 옵션 선택 탭 -->
+        <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+          <button onclick="switchSatOption('round')" id="btn-sat-round" class="py-2.5 text-sm font-black rounded-xl bg-amber-500 text-white shadow transition">
+            [A안] 오전 번개 라운드
+          </button>
+          <button onclick="switchSatOption('tour')" id="btn-sat-tour" class="py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition">
+            [B안] 여유 관광 & 독천식당
+          </button>
         </div>
 
-        <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
-          <li>• <strong>13:00</strong> <strong>[목포 집결 및 점심]</strong> 백성식당(백반) 또는 조선쫄복집(쫄복지리)</li>
-          <li>• <strong>14:00~16:00</strong> <strong>[목포 해상케이블카]</strong> 북항 ➔ 고하도 바다 산책 ➔ 유달산 정상 조망</li>
-          <li>• <strong>16:30</strong> 목포 명물 <strong>&lt;커피창고로&gt;</strong> 인생 에그타르트 포장</li>
-          <li>• <strong>17:30</strong> <strong>남악 기숙사 전원 차 주차 완료</strong> (편안하게 술 한잔할 준비)</li>
-          <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침·연포탕에 소주 한잔)</li>
-          <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 티타임 & <strong>일요일 골프 짐 사전 정리</strong></li>
-        </ul>
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-sm text-slate-700 space-y-1">
+          <div class="font-black text-slate-900">🚗 2팀(형진·용미) 이동:</div>
+          <div>• <strong>07:00</strong> 난곡 출발 ➔ 서해안고속도로 이동 ➔ <strong>12:30~13:00</strong> 무안/목포 도착 후 합류</div>
+        </div>
+
+        <!-- [A안 상세 내용] -->
+        <div id="sat-detail-round" class="space-y-2 pt-1 text-base text-slate-700 leading-relaxed">
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-sm font-bold text-amber-900">
+            ⛳ <strong>성호·은남·영학·규연 팀장</strong> 4인 오전 18홀 라운드 성사 시 동선
+          </div>
+          <ul class="space-y-1.5 pl-1">
+            <li>• <strong>08:00 전후</strong> <strong>무안CC 오전 18홀 라운드</strong> (성호·은남·영학·규연 팀장)</li>
+            <li>• <strong>12:30</strong> 라운드 종료 및 사우나 샤워</li>
+            <li>• <strong>13:00</strong> <strong>[점심 겸 4인 집결] 무안 &lt;갯벌낙지직판장&gt;</strong><br>
+              <span class="text-sm text-slate-600 pl-4 font-bold">↳ 서울에서 내려온 형진·용미 부부 직판장으로 바로 합류! (산낙지 탕탕이·연포탕)</span>
+            </li>
+            <li>• <strong>14:30~16:30</strong> <strong>목포 해상케이블카</strong> 탑승 (북항 ➔ 고하도 바다 산책 ➔ 유달산 조망)</li>
+            <li>• <strong>16:40</strong> 명물 <strong>&lt;커피창고로&gt;</strong> 인생 에그타르트 포장</li>
+            <li>• <strong>17:30</strong> 남악 기숙사 전원 차 주차 완료 (음주 대비)</li>
+            <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침·연포탕에 소주 한잔)</li>
+            <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 디저트 타임 & 일요일 골프 짐 정리</li>
+          </ul>
+        </div>
+
+        <!-- [B안 상세 내용] -->
+        <div id="sat-detail-tour" class="space-y-2 pt-1 text-base text-slate-700 leading-relaxed hidden">
+          <div class="bg-slate-100 border border-slate-200 rounded-xl p-3 text-sm font-bold text-slate-800">
+            ☕ 라운드 없이 여유롭게 늦잠 자고 목포 원조 낙지 맛집에서 만나는 동선
+          </div>
+          <ul class="space-y-1.5 pl-1">
+            <li>• <strong>09:30~11:30</strong> 1팀(성호·은남), 기숙사에서 늦잠 후 여유로운 외출 준비</li>
+            <li>• <strong>13:00</strong> <strong>[점심 겸 4인 집결] 목포 명가 &lt;독천식당&gt;</strong><br>
+              <span class="text-sm text-slate-600 pl-4 font-bold">↳ 형진·용미 부부 합류! 호남 3대 낙지 맛집 (낙지비빔밥, 갈낙탕, 육회탕탕이)</span>
+            </li>
+            <li>• <strong>14:00~16:00</strong> <strong>목포 해상케이블카</strong> 탑승 & 고하도 바다 산책</li>
+            <li>• <strong>16:30</strong> 명물 <strong>&lt;커피창고로&gt;</strong> 에그타르트 포장</li>
+            <li>• <strong>17:30</strong> 남악 기숙사 전원 차 주차 완료</li>
+            <li>• <strong>18:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;</strong> (낙지초무침에 소주 한잔)</li>
+            <li>• <strong>21:00</strong> 기숙사 복귀 후 에그타르트 디저트 & 일요일 골프 짐 정리</li>
+          </ul>
+        </div>
       </div>
 
       <!-- 2일차 (일) -->
@@ -149,12 +188,12 @@
           <span class="bg-emerald-100 text-emerald-900 text-sm font-black px-3 py-1 rounded-lg">2일차 : 11/29(일)</span>
           <span class="text-xs font-bold text-emerald-700">1차 라운드 (서코스)</span>
         </div>
-        <h3 class="text-xl font-black text-slate-900">11:54 서A코스 라운드 ➔ 뻘낙지직판장 만찬</h3>
+        <h3 class="text-xl font-black text-slate-900">11:54 서A코스 라운드 ➔ 저녁 만찬</h3>
         <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>10:20</strong> 기숙사 출발 ➔ 무안CC 이동 (약 25분)</li>
           <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong><br><span class="text-sm text-emerald-700 font-bold">*하루 중 가장 포근한 낮 13~14℃ 기온에서 플레이!</span></li>
           <li>• <strong>16:40</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
-          <li>• <strong>17:15</strong> <strong>[이른 저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이, 연포탕 만찬)</li>
+          <li>• <strong>17:15</strong> <strong>[이른 저녁] &lt;무안 갯벌낙지직판장&gt;</strong> (또는 짚불구이·남도백반 만찬)</li>
           <li>• <strong>19:30</strong> 남악 기숙사 복귀 후 휴식 및 담소 (연박 숙박비 0원)</li>
         </ul>
       </div>
@@ -195,18 +234,43 @@
   </div>
 
   <script>
+    let satOption = 'round';
+
+    function switchSatOption(opt) {
+      satOption = opt;
+      const btnRound = document.getElementById('btn-sat-round');
+      const btnTour = document.getElementById('btn-sat-tour');
+      const detailRound = document.getElementById('sat-detail-round');
+      const detailTour = document.getElementById('sat-detail-tour');
+
+      if (opt === 'round') {
+        btnRound.className = "py-2.5 text-sm font-black rounded-xl bg-amber-500 text-white shadow transition";
+        btnTour.className = "py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition";
+        detailRound.classList.remove('hidden');
+        detailTour.classList.add('hidden');
+      } else {
+        btnTour.className = "py-2.5 text-sm font-black rounded-xl bg-amber-500 text-white shadow transition";
+        btnRound.className = "py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition";
+        detailTour.classList.remove('hidden');
+        detailRound.classList.add('hidden');
+      }
+    }
+
     function copyFullSchedule() {
+      let satDesc = (satOption === 'round') 
+        ? "• 토(A안): 성호·은남·영학·규연팀장 오전 라운드 ➔ 무안 갯벌낙지직판장에서 2팀 합류 점심 ➔ 케이블카 ➔ 삼호가든"
+        : "• 토(B안): 여유로운 기상 ➔ 목포 독천식당에서 2팀 합류 점심 ➔ 케이블카 ➔ 삼호가든";
+
       let text = `[2026 무안CC 부부 골프 투어 최종 확정 일정표]\n\n` +
                  `📅 일정: 11/27(금 저녁) ~ 11/30(월)\n` +
                  `🚗 이동:\n` +
                  `  - 1팀(성호·은남): 금요일 19:00 선출발\n` +
-                 `  - 2팀(형진·용미): 토요일 07:00 출발 ➔ 목포 합류\n` +
+                 `  - 2팀(형진·용미): 토요일 07:00 출발 ➔ 목포/무안 합류\n` +
                  `🛏️ 숙소: 남악 모아엘가2차 204동 1101호 (전 일정 0원 연박)\n\n` +
                  `⛳ 확정 티오프 (무안CC 18홀 셀프):\n` +
                  `  - 1차: 11/29(일) 11:54 (서A ➔ 서B)\n` +
                  `  - 2차: 11/30(월) 08:37 (남B ➔ 남A)\n\n` +
-                 `🚠 관광: 목포 해상케이블카, 고하도 산책, 유달산 정상 조망\n` +
-                 `🐙 미식: 삼호가든 낙지초무침, 갯벌낙지 탕탕이·연포탕, 짚불구이, 에그타르트\n` +
+                 `토요일 일정:\n${satDesc}\n\n` +
                  `💰 1인 확정 경비: 약 510,000원 (골프 28만 + 공용경비 23만)\n\n` +
                  `상세 일정표 확인하기:\n` +
                  `${window.location.href}`;
