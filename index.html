@@ -34,7 +34,7 @@
   </header>
 
   <!-- 메인 본문 -->
-  <main class="max-w-xl mx-auto px-4 pt-5 space-y-5">
+  <main class="max-w-xl mx-auto px-4 pt-5 space-y-6">
 
     <!-- 티오프 예약 확정 & 경비 요약 카드 -->
     <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-emerald-600 space-y-4">
@@ -165,8 +165,8 @@
         </div>
         <h3 class="text-xl font-black text-slate-900">11:54 서A코스 라운드 ➔ 뻘낙지직판장 만찬</h3>
         <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
-          <li>• <strong>09:30~10:20</strong> 기상 후 남악 신도시 가벼운 아점 식사</li>
-          <li>• <strong>10:20</strong> 기숙사 출발 ➔ 무안CC 이동 (약 25분)</li>
+          <li>• <strong>09:30~10:20</strong> 기상 후 남악/목포 로컬 맛집 가벼운 아점 식사</li>
+          <li>• <strong>10:20</strong> 출발 ➔ 무안CC 이동 (약 25분)</li>
           <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong> (165,000원/1인)<br><span class="text-sm text-emerald-700 font-bold">*하루 중 가장 포근한 낮 13~14℃ 기온에서 플레이!</span></li>
           <li>• <strong>16:40</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>17:15</strong> <strong>[저녁 만찬] &lt;무안 갯벌낙지직판장&gt;</strong> (산낙지 탕탕이·연포탕·낙지호롱이)</li>
@@ -191,7 +191,193 @@
           <li>• <strong>20:30~21:00</strong> 각자 자택 안전 복귀 및 투어 종료</li>
         </ul>
       </div>
+    </section>
 
+    <!-- 목포·무안 추천 맛집 & 가볼만한 곳 가이드 -->
+    <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-amber-400 space-y-4">
+      <div class="border-b border-slate-100 pb-3">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-utensils text-amber-600 text-xl"></i>
+          <h2 class="text-xl font-black text-slate-900">목포·무안 추천 맛집 & 명소 가이드</h2>
+        </div>
+        <p class="text-sm text-slate-500 mt-1">일정 중 아점·간식·산책 코스로 유연하게 활용 가능한 현지 검증 리스트입니다.</p>
+      </div>
+
+      <!-- 카테고리 전환 탭 -->
+      <div class="grid grid-cols-3 gap-1.5 bg-slate-100 p-1.5 rounded-2xl border border-slate-200">
+        <button onclick="switchGuide('food')" id="btn-guide-food" class="py-2.5 text-sm font-black rounded-xl bg-amber-600 text-white shadow transition">
+          🍽️ 식당·노포
+        </button>
+        <button onclick="switchGuide('cafe')" id="btn-guide-cafe" class="py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition">
+          🥐 빵·카페
+        </button>
+        <button onclick="switchGuide('spot')" id="btn-guide-spot" class="py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition">
+          🚶 여행·산책
+        </button>
+      </div>
+
+      <!-- 1) 식당·노포 리스트 -->
+      <div id="guide-food" class="space-y-3">
+        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 text-sm text-amber-900 font-bold">
+          💡 일요일 아점 추천: <span class="underline">섬마을식당</span>, <span class="underline">유달콩물</span>, <span class="underline">김정림 선지해장국</span>
+        </div>
+
+        <div class="divide-y divide-slate-100 text-base">
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">1. 너구리식당</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">꽃게무침</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">살만 발라낸 단짠·매콤 꽃게살에 밥·김자반을 비벼 먹는 현지인·관광객 인기 맛집</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">2. 해안로</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">제철 한상차림</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">민어·홍어애·낙지탕탕이·삼치회와 삼치전을 한 상에 조금씩 다양하게 맛볼 수 있는 곳</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">3. 영란횟집</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">민어 전문 (56년 전통)</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">민어회·부레·무침·전·매운탕 풀코스. 특제 초장과 3년 묵은지에 싸 먹는 민어전이 일품</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">4. 장터 하당점</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">꽃게살 비빔밥</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">손에 묻지 않게 게살만 발라 양념한 꽃게살을 참기름·김에 싸 먹는 깔끔한 별미</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">5. 하당먹거리</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">소고기·전복·낙지 탕탕이</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">육회와 전복, 산낙지를 함께 다진 탕탕이와 3년 묵은지·전복장 비빔밥 조합이 뛰어난 곳</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">6. 섬마을식당</span>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">갈치찌개 백반 (아점 추천)</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">1인 만 원대 가성비로 갈치찌개, 꽃게장, 고등어구이, 제육볶음까지 푸짐한 전라도 백반</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">7. 유달콩물</span>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">콩국수·콩물 (50년 전통)</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">스프처럼 진하고 걸쭉한 노란 콩국수·검정 콩물 전문점. 겨울철 따뜻한 콩국수도 인기</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">8. 김정림 선지해장국</span>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">선지해장국·콩나물국밥</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">유달산 아래 아침 줄 서는 해장국 노포. 과음 다음 날 속 풀기 좋은 진한 국물</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">9. 명인집</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">먹갈치조림·수제막걸리</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">자체 양조장에서 빚은 수제 막걸리와 짜지 않고 달큰·담백한 먹갈치 조림이 어우러지는 집</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">10. 소래기 / 포미아구찜 / 중화루</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">별미·중식</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1"><strong>소래기</strong>(새콤달콤 수육무침·새우만두), <strong>포미아구찜</strong>(가성비 순살 아구찜), <strong>중화루</strong>(78년 전통 다진 짜장면 '중깐')</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2) 빵·카페 리스트 -->
+      <div id="guide-cafe" class="space-y-3 hidden">
+        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 text-sm text-amber-900 font-bold">
+          💡 토요일 <span class="underline">커피창고로</span> 에그타르트 포장 시 함께 들르기 좋은 명물 빵집!
+        </div>
+
+        <div class="divide-y divide-slate-100 text-base">
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">1. 씨엘비베이커리 (CLB) & 코롬방제과</span>
+              <span class="text-xs font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">목포역 대표 빵집</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">두 곳이 마주 보고 위치. 진하고 쫀득한 <strong>크림치즈바게트는 CLB</strong>, 머스타드 소스와 새우 풍미가 살아있는 <strong>새우바게트는 코롬방제과</strong> 추천</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">2. 쑥꿀레</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">전통 떡 디저트</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">향긋한 쑥떡에 흰 팥앙금을 뭉쳐 달콤한 조청을 뿌려 먹는 목포 전통 간식</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">3. 화신연쇄점 & 명다방</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">근대문화재 카페·레트로 다방</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1"><strong>화신연쇄점</strong>(1935년 목포 최초 백화점 개조 카페, 화신크림라떼), <strong>명다방</strong>(개항문화거리 감성 다방, 따뜻한 쌍화차)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3) 여행·산책 리스트 -->
+      <div id="guide-spot" class="space-y-3 hidden">
+        <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-3.5 text-sm text-emerald-900 font-bold">
+          💡 해상케이블카·유달산 외에 식후 소화 겸 평지로 걷기 좋은 산책 명소입니다.
+        </div>
+
+        <div class="divide-y divide-slate-100 text-base">
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">1. 목포 근대역사관 (1·2관) & 개항문화거리</span>
+              <span class="text-xs font-bold bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded">실내외 역사 산책</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">붉은 벽돌의 옛 일본영사관(1관, 드라마 호텔 델루나 촬영지)과 동양척식주식회사(2관)를 통합권으로 관람하며 유럽풍 거리를 걷는 평지 코스</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">2. 서산동 시화골목 (연희네 슈퍼·바보마당)</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">영화 촬영지·바다 전망</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">영화 '1987' 촬영지 연희네 슈퍼부터 주민들의 시와 벽화가 어우러진 골목. '바보마당'에서 목포항 바다가 한눈에 내려다보임</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">3. 갓바위 해상보행교</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">평화광장 해안 데크</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">평화광장 인근 바다 위 데크길을 따라 천연기념물 갓바위를 가까이서 감상하는 평탄한 산책길</p>
+          </div>
+
+          <div class="py-3">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-slate-900">4. 목포 항구포차거리</span>
+              <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">바다 야장 2차</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">삼학도 인근 바다 앞에서 낙지호롱구이·해물삼합에 지역 소주(잎새주)나 순희 막걸리를 곁들이는 포차 거리</p>
+          </div>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -210,6 +396,21 @@
   </div>
 
   <script>
+    function switchGuide(tab) {
+      const tabs = ['food', 'cafe', 'spot'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('btn-guide-' + t);
+        const panel = document.getElementById('guide-' + t);
+        if (t === tab) {
+          btn.className = "py-2.5 text-sm font-black rounded-xl bg-amber-600 text-white shadow transition";
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = "py-2.5 text-sm font-bold rounded-xl bg-transparent text-slate-700 transition";
+          panel.classList.add('hidden');
+        }
+      });
+    }
+
     function copyFullSchedule() {
       let text = `[2026 무안CC 부부 골프 투어 최종 확정 일정표]\n\n` +
                  `📅 일정: 11/27(금) ~ 11/30(월)\n` +
@@ -223,7 +424,7 @@
                  `🍾 하이라이트: 독천식당, 해상케이블카, 삼호가든, 돔페리뇽+성심당 케이크 파티, 갯벌낙지직판장, 해미읍성\n` +
                  `💰 1인 최종 확정 회비: 600,000원 (골프 28만 + 넉넉한 공용경비 32만)\n` +
                  `   * 부부 2인 기준 1,200,000원 (유류·통행료 각 팀 별도)\n\n` +
-                 `상세 일정표 확인하기:\n` +
+                 `상세 일정 및 추가 추천 맛집·명소 가이드 보기:\n` +
                  `${window.location.href}`;
 
       navigator.clipboard.writeText(text).then(() => {
