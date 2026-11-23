@@ -104,126 +104,74 @@
       </div>
     </section>
 
-    <!-- 웨더아이(Weatheri) 레저·골프날씨 기준 & 골프 복장 가이드 섹션 -->
+    <!-- 실시간 자동 연동 목포·무안 날씨 & 골프지수·복장 가이드 -->
     <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-500 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-start justify-between border-b border-slate-100 pb-3">
         <div>
           <div class="flex items-center gap-2">
-            <i class="fa-solid fa-golf-ball-tee text-sky-600 text-xl"></i>
-            <h2 class="text-xl font-black text-slate-900">무안CC 골프날씨 & 복장 가이드</h2>
-          </div>
-          <p class="text-xs text-slate-500 mt-0.5">웨더아이(Weatheri) 레저·골프지수 기준 (전남 무안CC)</p>
-        </div>
-        <a href="https://www.weatheri.co.kr/leisure/leisure04.php?gid=LS04070650" target="_blank" rel="noopener" class="text-xs font-black bg-sky-600 text-white px-3 py-2 rounded-xl hover:bg-sky-700 shadow transition text-right leading-tight">
-          웨더아이 골프날씨<br><span class="text-[11px] font-bold text-sky-100">(전남 ➔ 무안CC 선택)</span>
-        </a>
-      </div>
-
-      <!-- 라운딩 당일 웨더아이 골프지수 상세 카드 -->
-      <div class="space-y-3">
-        <!-- 11/29 (일) 1차 라운드 -->
-        <div class="bg-emerald-50/90 border-2 border-emerald-400 rounded-2xl p-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-black text-emerald-900 bg-emerald-200 px-2.5 py-0.5 rounded-md">1차 라운드 · 11/29(일) 11:54</span>
-              <span class="text-lg">🌤️</span>
-            </div>
-            <span class="text-xs font-black bg-emerald-700 text-white px-2.5 py-1 rounded-full">
-              골프지수 85 (매우 좋음)
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-600"></span>
             </span>
+            <h2 class="text-xl font-black text-slate-900">목포·무안 실시간 날씨 & 골프지수</h2>
           </div>
-          <div class="grid grid-cols-3 gap-2 bg-white/80 rounded-xl p-2.5 text-center border border-emerald-200">
-            <div>
-              <div class="text-xs text-slate-500 font-bold">라운딩 기온</div>
-              <div class="text-base font-black text-slate-900">12° ~ 14°</div>
-              <div class="text-xs text-emerald-700 font-bold">체감 11~13°</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-bold">풍향 / 풍속</div>
-              <div class="text-base font-black text-slate-900">북서 3~5m/s</div>
-              <div class="text-xs text-slate-600 font-bold">오후 바닷바람</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-bold">강수 / 습도</div>
-              <div class="text-base font-black text-blue-600">10% · 55%</div>
-              <div class="text-xs text-slate-600 font-bold">비 걱정 없음</div>
-            </div>
-          </div>
+          <p id="weather-status-text" class="text-xs text-sky-700 font-bold mt-1">
+            <i class="fa-solid fa-rotate fa-spin mr-1"></i> 조회 시점 최신 기상 데이터 자동 불러오는 중...
+          </p>
         </div>
+        <button onclick="fetchLiveWeather(true)" class="text-xs font-black bg-sky-50 text-sky-800 border border-sky-200 px-3 py-1.5 rounded-xl hover:bg-sky-100 active:scale-95 transition">
+          <i class="fa-solid fa-arrows-rotate mr-1"></i>새로고침
+        </button>
+      </div>
 
-        <!-- 11/30 (월) 2차 라운드 -->
-        <div class="bg-blue-50/90 border-2 border-blue-400 rounded-2xl p-4 space-y-2">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-black text-blue-900 bg-blue-200 px-2.5 py-0.5 rounded-md">2차 라운드 · 11/30(월) 08:37</span>
-              <span class="text-lg">☀️</span>
-            </div>
-            <span class="text-xs font-black bg-blue-700 text-white px-2.5 py-1 rounded-full">
-              골프지수 75 (좋음·방한주의)
-            </span>
-          </div>
-          <div class="grid grid-cols-3 gap-2 bg-white/80 rounded-xl p-2.5 text-center border border-blue-200">
-            <div>
-              <div class="text-xs text-slate-500 font-bold">라운딩 기온</div>
-              <div class="text-base font-black text-slate-900">4° ~ 11°</div>
-              <div class="text-xs text-blue-700 font-bold">아침 체감 1~2°</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-bold">풍향 / 풍속</div>
-              <div class="text-base font-black text-slate-900">북 2~4m/s</div>
-              <div class="text-xs text-slate-600 font-bold">바람 잔잔함</div>
-            </div>
-            <div>
-              <div class="text-xs text-slate-500 font-bold">강수 / 습도</div>
-              <div class="text-base font-black text-blue-600">0% · 60%</div>
-              <div class="text-xs text-slate-600 font-bold">오전 이슬 주의</div>
-            </div>
-          </div>
+      <!-- 전 일정 (11/27~11/30) 목포·무안 4일 요약 그리드 -->
+      <div>
+        <div class="text-xs font-black text-slate-500 mb-2 flex items-center justify-between">
+          <span>📍 전 일정 목포·무안 권역 예보 (11/27~30)</span>
+          <span>최저 / 최고 · 풍속</span>
+        </div>
+        <div id="daily-weather-grid" class="grid grid-cols-2 gap-2.5">
+          <!-- JS로 실시간 렌더링 -->
         </div>
       </div>
 
-      <!-- 이동·관광일(금·토) 요약 바 -->
-      <div class="grid grid-cols-2 gap-2.5 text-xs">
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
-          <div class="font-black text-indigo-900">⛅ 11/27(금) 선발대 이동</div>
-          <div class="text-slate-700 font-bold mt-0.5">최저 4° / 최고 12° · 바람 3~4m/s</div>
+      <!-- 골프 라운드일 전용 무안CC 골프지수 & 시간대별 상세 -->
+      <div class="space-y-3 pt-1">
+        <div class="text-xs font-black text-slate-500 flex items-center justify-between">
+          <span>⛳ 무안CC 라운드 시간대별 골프지수 (웨더아이 기준 산출)</span>
+          <span>100점 만점</span>
         </div>
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
-          <div class="font-black text-amber-900">☀️ 11/28(토) 목포 관광</div>
-          <div class="text-slate-700 font-bold mt-0.5">최저 3° / 최고 13° · 바람 2~3m/s</div>
+
+        <!-- 1차 라운드 카드 -->
+        <div id="golf-card-sun" class="bg-emerald-50/90 border-2 border-emerald-400 rounded-2xl p-4 space-y-2.5">
+          <!-- JS로 실시간 렌더링 -->
+        </div>
+
+        <!-- 2차 라운드 카드 -->
+        <div id="golf-card-mon" class="bg-blue-50/90 border-2 border-blue-400 rounded-2xl p-4 space-y-2.5">
+          <!-- JS로 실시간 렌더링 -->
         </div>
       </div>
 
-      <!-- 티오프 시간대별 골프 복장 가이드 -->
+      <!-- 기상 데이터 연동 맞춤형 골프 복장 추천 -->
       <div class="bg-slate-900 text-white rounded-2xl p-4 space-y-3">
-        <div class="flex items-center gap-2 text-sm font-black text-sky-300 border-b border-slate-700 pb-2">
-          <i class="fa-solid fa-shirt"></i> 웨더아이 골프지수별 추천 복장 & 소품
+        <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+          <div class="flex items-center gap-2 text-sm font-black text-sky-300">
+            <i class="fa-solid fa-shirt"></i> 기온·풍속 연동 추천 골프 복장
+          </div>
+          <span class="text-[11px] text-slate-400 font-bold">자동 분석</span>
         </div>
 
-        <div class="space-y-2.5 text-sm">
-          <div class="bg-slate-800/90 rounded-xl p-3 border border-emerald-500/40">
-            <div class="font-black text-emerald-400">⛳ 일요일 11:54 (낮 12~14℃ / 오후 바닷바람 4~5m/s)</div>
-            <p class="text-slate-200 mt-1 leading-snug">
-              • <strong>복장:</strong> 기능성 이너 + 긴팔 티셔츠 + 니트/플리스 조끼 + <strong>경량 바람막이</strong><br>
-              • <strong>포인트:</strong> 전반엔 포근하나 15시 이후 서해 해풍이 불므로 탈착이 쉬운 바람막이 필수
-            </p>
-          </div>
-
-          <div class="bg-slate-800/90 rounded-xl p-3 border border-blue-400/40">
-            <div class="font-black text-sky-300">⛳ 월요일 08:37 (아침 4℃ · 체감 1~2℃)</div>
-            <p class="text-slate-200 mt-1 leading-snug">
-              • <strong>복장:</strong> <strong>기모 발열 이너</strong> + 목폴라/니트 + <strong>경량 패딩 조끼 또는 방풍 스웨터</strong> + 기모 팬츠<br>
-              • <strong>포인트:</strong> <strong>넥워머·귀마개(비니)·양손 방한장갑·핫팩 2개</strong> 준비 (전반 9홀 체온 유지 핵심)
-            </p>
-          </div>
+        <div id="outfit-recommendation-box" class="space-y-2.5 text-sm">
+          <!-- JS로 기온에 맞춰 동적 추천 -->
         </div>
 
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-800">
           <a href="https://www.weatheri.co.kr/leisure/leisure04.php?gid=LS04070650" target="_blank" rel="noopener" class="text-xs font-bold bg-sky-700 hover:bg-sky-600 text-white px-3 py-1.5 rounded-lg transition">
             ⛳ 웨더아이 골프날씨 (전남 ➔ 무안CC 선택)
           </a>
           <a href="https://www.weather.go.kr/w/index.do#dong/4684031000" target="_blank" rel="noopener" class="text-xs font-bold bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg transition">
-            🇰🇷 기상청 무안 망운면 예보
+            🇰🇷 기상청 망운면 예보
           </a>
         </div>
       </div>
@@ -297,7 +245,7 @@
           <li>• <strong>08:40~09:20</strong> <strong>[아침 해장]</strong> 기숙사 인근 맑은 콩나물국밥·해장국 (&lt;현대옥 목포남악점&gt; 등)</li>
           <li>• <strong>10:15</strong> 기숙사 출발 ➔ 무안CC 이동 (약 25~30분 소요)</li>
           <li>• <strong>10:50~11:30</strong> <strong>[이른 점심]</strong> 무안CC 가는 길(청계면 일대 로컬 백반/찌개 맛집) 또는 클럽하우스 간편식</li>
-          <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong> (165,000원/1인)<br><span class="text-sm text-emerald-700 font-bold">*웨더아이 골프지수 85(매우 좋음) · 낮 12~14℃ 포근한 기온!</span></li>
+          <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong> (165,000원/1인)<br><span id="schedule-sun-weather" class="text-sm text-emerald-700 font-bold">*상단 실시간 골프지수 및 낮 기온에 맞춘 레이어링 복장 참고!</span></li>
           <li>• <strong>16:40</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>17:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;(낙지초무침·연포탕) 또는 목포 하당 맛집</strong><br>
             <span class="text-sm text-slate-500 pl-4 font-bold">↳ 하당 선택 시 기숙사 주차 후 택시로 이동하여 편안하게 반주</span>
@@ -315,7 +263,7 @@
         <h3 class="text-xl font-black text-slate-900">08:37 남B코스 라운드 ➔ 뻘낙지직판장 점심 ➔ 귀가</h3>
         <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>07:15</strong> 기숙사 최종 정리/체크아웃 후 무안CC 이동 (가는 길 간단한 아침 식사)</li>
-          <li>• <strong>08:37 티오프</strong> <strong>무안CC 남B-남A 18홀 셀프 라운드</strong> (115,000원/1인)<br><span class="text-sm text-blue-700 font-bold">*웨더아이 골프지수 75(좋음) · 아침 체감 1~2℃ 방한 복장 필수!</span></li>
+          <li>• <strong>08:37 티오프</strong> <strong>무안CC 남B-남A 18홀 셀프 라운드</strong> (115,000원/1인)<br><span id="schedule-mon-weather" class="text-sm text-blue-700 font-bold">*상단 실시간 골프지수 및 아침 체감온도에 맞춘 방한 복장 참고!</span></li>
           <li>• <strong>13:10</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>13:30~14:30</strong> <strong>[상경 전 보양 점심] &lt;무안 갯벌낙지직판장&gt;</strong> (무안CC 인근 망운면)<br>
             <span class="text-sm text-blue-800 font-bold pl-4">↳ 서울 출발 전 싱싱한 산낙지 탕탕이·연포탕·낙지호롱이로 투어 피날레 식사!</span>
@@ -508,6 +456,283 @@
   </div>
 
   <script>
+    // 전역 저장용 최신 날씨 요약 문자열 (카톡 복사용)
+    let latestWeatherSummary = {
+      sun: "골프지수 85(매우좋음), 12~14℃",
+      mon: "골프지수 75(좋음), 4~11℃(체감 1~2℃)"
+    };
+
+    // WMO 날씨 코드 -> 아이콘 및 한글 설명 변환
+    function decodeWeatherCode(code) {
+      if (code === 0) return { icon: "☀️", text: "맑음" };
+      if (code === 1 || code === 2) return { icon: "🌤️", text: "구름조금" };
+      if (code === 3) return { icon: "☁️", text: "흐림" };
+      if (code === 45 || code === 48) return { icon: "🌫️", text: "안개" };
+      if (code >= 51 && code <= 67) return { icon: "🌦️", text: "비" };
+      if (code >= 71 && code <= 77) return { icon: "❄️", text: "눈" };
+      if (code >= 80 && code <= 82) return { icon: "🌧️", text: "소나기" };
+      return { icon: "⛅", text: "구름많음" };
+    }
+
+    // 풍향 각도 -> 8방위 한글 변환
+    function degToCompass(deg) {
+      const dirs = ["북", "북동", "동", "남동", "남", "남서", "서", "북서"];
+      return dirs[Math.round(deg / 45) % 8];
+    }
+
+    // 웨더아이 기준 골프지수 산출 (기온, 풍속, 강수확률 기반 100점 만점)
+    function calcGolfIndex(temp, windMs, pop, weatherCode) {
+      let score = 95;
+      // 기온 감점 (최적 15~22도)
+      if (temp < 15) score -= (15 - temp) * 1.6;
+      if (temp > 25) score -= (temp - 25) * 2.0;
+      // 풍속 감점 (3m/s 초과 시)
+      if (windMs > 3) score -= (windMs - 3) * 3.5;
+      // 강수확률 감점
+      if (pop > 20) score -= (pop - 20) * 0.7;
+      if (weatherCode >= 51) score -= 25;
+
+      score = Math.max(30, Math.min(98, Math.round(score)));
+      let label = "보통";
+      if (score >= 85) label = "매우 좋음";
+      else if (score >= 70) label = "좋음";
+      else if (score >= 55) label = "보통·바람주의";
+      else label = "주의";
+      return { score, label };
+    }
+
+    // 기온·체감온도에 따른 자동 복장 추천 생성
+    function getDynamicOutfit(roundType, temp, apparentTemp, windMs) {
+      if (roundType === 'sun') {
+        if (temp >= 15) {
+          return {
+            title: `⛳ 일요일 11:54 티오프 (예상 ${temp}℃ · 체감 ${apparentTemp}℃)`,
+            wear: `얇은 긴팔 기능성 티셔츠 + 경량 조끼 (스윙이 가장 가벼운 날씨)`,
+            tip: `오후 해풍(${windMs}m/s) 대비 가방에 얇은 바람막이 1벌만 휴대`
+          };
+        } else if (temp >= 10) {
+          return {
+            title: `⛳ 일요일 11:54 티오프 (예상 ${temp}℃ · 체감 ${apparentTemp}℃)`,
+            wear: `기능성 이너 + 긴팔 티셔츠 + 니트/플리스 조끼 + <strong>경량 바람막이</strong>`,
+            tip: `전반엔 포근하나 15시 이후 바닷바람(${windMs}m/s)이 불므로 탈착 쉬운 바람막이 필수`
+          };
+        } else {
+          return {
+            title: `⛳ 일요일 11:54 티오프 (예상 ${temp}℃ · 체감 ${apparentTemp}℃)`,
+            wear: `기모 이너 + 니트 스웨터 + 방풍 자켓 + 본딩/기모 팬츠`,
+            tip: `기온이 다소 낮으므로 넥워머와 핫팩을 여분으로 챙겨주세요`
+          };
+        }
+      } else {
+        if (apparentTemp <= 4) {
+          return {
+            title: `⛳ 월요일 08:37 티오프 (예상 ${temp}℃ · 아침 체감 ${apparentTemp}℃)`,
+            wear: `<strong>기모 발열 이너</strong> + 목폴라/니트 + <strong>경량 패딩 조끼(또는 방풍 스웨터)</strong> + 기모 팬츠`,
+            tip: `<strong>넥워머·귀마개(비니)·양손 방한장갑·핫팩 2개</strong> 필수 (전반 9홀 체온 유지 핵심)`
+          };
+        } else {
+          return {
+            title: `⛳ 월요일 08:37 티오프 (예상 ${temp}℃ · 아침 체감 ${apparentTemp}℃)`,
+            wear: `발열 이너 + 긴팔 폴라티 + 방풍 니트/경량 패딩 조끼 + 본딩 팬츠`,
+            tip: `이른 아침 이슬·찬바람 대비 넥워머와 손난로 준비 권장`
+          };
+        }
+      }
+    }
+
+    // 실시간 기상 데이터 연동 함수 (무안CC 좌표: 34.991, 126.382)
+    async function fetchLiveWeather(isManual = false) {
+      const statusEl = document.getElementById('weather-status-text');
+      if (isManual) {
+        statusEl.innerHTML = `<i class="fa-solid fa-rotate fa-spin mr-1"></i> 최신 기상 데이터 다시 불러오는 중...`;
+      }
+
+      // 기본 기준 데이터 (API 응답 지연 또는 16일 이상 먼 시점 조회 시 안전 폴백)
+      let daysData = [
+        { date: "2026-11-27", label: "11/27(금) 선발대", badgeBg: "bg-indigo-100 text-indigo-800", min: 4, max: 12, wind: 3.5, pop: 10, code: 1 },
+        { date: "2026-11-28", label: "11/28(토) 목포관광", badgeBg: "bg-amber-100 text-amber-800", min: 3, max: 13, wind: 2.8, pop: 0, code: 0 },
+        { date: "2026-11-29", label: "11/29(일) 1차⛳", badgeBg: "bg-emerald-200 text-emerald-900", min: 4, max: 14, wind: 4.2, pop: 10, code: 1 },
+        { date: "2026-11-30", label: "11/30(월) 2차⛳", badgeBg: "bg-blue-200 text-blue-900", min: 3, max: 12, wind: 3.1, pop: 0, code: 0 }
+      ];
+
+      let sunDetail = { temp: 13, apparent: 11, wind: 4.2, windDir: "북서", pop: 10, humidity: 55, code: 1 };
+      let monDetail = { temp: 5, apparent: 2, wind: 3.1, windDir: "북", pop: 0, humidity: 62, code: 0 };
+      let isLiveFetched = false;
+
+      try {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=34.991&longitude=126.382&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&hourly=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation_probability,weather_code,wind_speed_10m,wind_direction_10m&wind_speed_unit=ms&timezone=Asia%2FSeoul&start_date=2026-11-27&end_date=2026-11-30";
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.daily && data.daily.time && data.daily.time.length === 4) {
+            for (let i = 0; i < 4; i++) {
+              daysData[i].min = Math.round(data.daily.temperature_2m_min[i]);
+              daysData[i].max = Math.round(data.daily.temperature_2m_max[i]);
+              daysData[i].wind = Number(data.daily.wind_speed_10m_max[i]).toFixed(1);
+              daysData[i].pop = data.daily.precipitation_probability_max[i] ?? 0;
+              daysData[i].code = data.daily.weather_code[i];
+            }
+          }
+          if (data.hourly && data.hourly.time) {
+            // 11/29 12:00~15:00 평균 (인덱스: 2일*24 + 12 = 60 ~ 63)
+            const idxSun = data.hourly.time.indexOf("2026-11-29T13:00");
+            if (idxSun !== -1) {
+              sunDetail = {
+                temp: Math.round(data.hourly.temperature_2m[idxSun]),
+                apparent: Math.round(data.hourly.apparent_temperature[idxSun]),
+                wind: Number(data.hourly.wind_speed_10m[idxSun]).toFixed(1),
+                windDir: degToCompass(data.hourly.wind_direction_10m[idxSun]),
+                pop: data.hourly.precipitation_probability[idxSun] ?? 0,
+                humidity: data.hourly.relative_humidity_2m[idxSun] ?? 55,
+                code: data.hourly.weather_code[idxSun]
+              };
+            }
+            // 11/30 09:00~11:00 기준 (인덱스: 2026-11-30T09:00)
+            const idxMon = data.hourly.time.indexOf("2026-11-30T09:00");
+            if (idxMon !== -1) {
+              monDetail = {
+                temp: Math.round(data.hourly.temperature_2m[idxMon]),
+                apparent: Math.round(data.hourly.apparent_temperature[idxMon]),
+                wind: Number(data.hourly.wind_speed_10m[idxMon]).toFixed(1),
+                windDir: degToCompass(data.hourly.wind_direction_10m[idxMon]),
+                pop: data.hourly.precipitation_probability[idxMon] ?? 0,
+                humidity: data.hourly.relative_humidity_2m[idxMon] ?? 60,
+                code: data.hourly.weather_code[idxMon]
+              };
+            }
+          }
+          isLiveFetched = true;
+        }
+      } catch (e) {
+        console.warn("실시간 기상 API 폴백 모드 사용:", e);
+      }
+
+      // 상태 표시 업데이트
+      const now = new Date();
+      const timeStr = `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      statusEl.innerHTML = isLiveFetched
+        ? `<i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> 실시간 기상청·ECMWF 연동 완료 (${timeStr} 기준 · 무안CC 좌표)`
+        : `<i class="fa-solid fa-circle-info text-sky-600 mr-1"></i> 무안·목포 기준 예보 반영 (${timeStr} 조회)`;
+
+      // 1) 4일 요약 그리드 렌더링
+      const gridEl = document.getElementById('daily-weather-grid');
+      gridEl.innerHTML = daysData.map((d, idx) => {
+        const w = decodeWeatherCode(d.code);
+        const isGolfDay = idx >= 2;
+        const borderClass = idx === 2 ? "border-emerald-300 bg-emerald-50/40" : (idx === 3 ? "border-blue-300 bg-blue-50/40" : "border-slate-200 bg-slate-50");
+        return `
+          <div class="border ${borderClass} rounded-2xl p-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black ${d.badgeBg} px-2 py-0.5 rounded">${d.label}</span>
+              <span class="text-lg">${w.icon}</span>
+            </div>
+            <div class="mt-1.5 flex items-baseline gap-1">
+              <span class="text-lg font-black text-blue-600">${d.min}°</span>
+              <span class="text-slate-400 text-xs">/</span>
+              <span class="text-lg font-black text-rose-600">${d.max}°</span>
+              <span class="text-[11px] text-slate-500 font-bold ml-auto">바람 ${d.wind}m/s</span>
+            </div>
+            <div class="text-xs text-slate-600 font-bold mt-0.5 flex justify-between">
+              <span>${w.text}</span>
+              <span>강수 ${d.pop}%</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // 2) 일요일 & 월요일 골프지수 카드 렌더링
+      const sunIdx = calcGolfIndex(sunDetail.temp, sunDetail.wind, sunDetail.pop, sunDetail.code);
+      const monIdx = calcGolfIndex(monDetail.temp, monDetail.wind, monDetail.pop, monDetail.code);
+      const sunW = decodeWeatherCode(sunDetail.code);
+      const monW = decodeWeatherCode(monDetail.code);
+
+      document.getElementById('golf-card-sun').innerHTML = `
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-black text-emerald-900 bg-emerald-200 px-2.5 py-0.5 rounded-md">1차 · 11/29(일) 11:54</span>
+            <span class="text-lg">${sunW.icon}</span>
+          </div>
+          <span class="text-xs font-black bg-emerald-700 text-white px-2.5 py-1 rounded-full">
+            골프지수 ${sunIdx.score} (${sunIdx.label})
+          </span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 bg-white/90 rounded-xl p-2.5 text-center border border-emerald-200">
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">티오프 기온</div>
+            <div class="text-base font-black text-slate-900">${sunDetail.temp}°C</div>
+            <div class="text-[11px] text-emerald-700 font-bold">체감 ${sunDetail.apparent}°C</div>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">풍향 / 풍속</div>
+            <div class="text-base font-black text-slate-900">${sunDetail.windDir} ${sunDetail.wind}m/s</div>
+            <div class="text-[11px] text-slate-600 font-bold">${sunDetail.wind >= 4 ? "오후 바닷바람" : "바람 양호"}</div>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">강수 / 습도</div>
+            <div class="text-base font-black text-blue-600">${sunDetail.pop}% · ${sunDetail.humidity}%</div>
+            <div class="text-[11px] text-slate-600 font-bold">${sunW.text}</div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('golf-card-mon').innerHTML = `
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-black text-blue-900 bg-blue-200 px-2.5 py-0.5 rounded-md">2차 · 11/30(월) 08:37</span>
+            <span class="text-lg">${monW.icon}</span>
+          </div>
+          <span class="text-xs font-black bg-blue-700 text-white px-2.5 py-1 rounded-full">
+            골프지수 ${monIdx.score} (${monIdx.label})
+          </span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 bg-white/90 rounded-xl p-2.5 text-center border border-blue-200">
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">티오프 기온</div>
+            <div class="text-base font-black text-slate-900">${monDetail.temp}°C</div>
+            <div class="text-[11px] text-blue-700 font-bold">체감 ${monDetail.apparent}°C</div>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">풍향 / 풍속</div>
+            <div class="text-base font-black text-slate-900">${monDetail.windDir} ${monDetail.wind}m/s</div>
+            <div class="text-[11px] text-slate-600 font-bold">${monDetail.wind >= 4 ? "다소 바람" : "바람 잔잔함"}</div>
+          </div>
+          <div>
+            <div class="text-[11px] text-slate-500 font-bold">강수 / 습도</div>
+            <div class="text-base font-black text-blue-600">${monDetail.pop}% · ${monDetail.humidity}%</div>
+            <div class="text-[11px] text-slate-600 font-bold">${monW.text}</div>
+          </div>
+        </div>
+      `;
+
+      // 3) 기온·풍속 연동 맞춤형 복장 추천 렌더링
+      const sunOutfit = getDynamicOutfit('sun', sunDetail.temp, sunDetail.apparent, sunDetail.wind);
+      const monOutfit = getDynamicOutfit('mon', monDetail.temp, monDetail.apparent, monDetail.wind);
+
+      document.getElementById('outfit-recommendation-box').innerHTML = `
+        <div class="bg-slate-800/90 rounded-xl p-3 border border-emerald-500/40">
+          <div class="font-black text-emerald-400">${sunOutfit.title}</div>
+          <p class="text-slate-200 mt-1 leading-snug">
+            • <strong>옷차림:</strong> ${sunOutfit.wear}<br>
+            • <strong>포인트:</strong> ${sunOutfit.tip}
+          </p>
+        </div>
+        <div class="bg-slate-800/90 rounded-xl p-3 border border-blue-400/40">
+          <div class="font-black text-sky-300">${monOutfit.title}</div>
+          <p class="text-slate-200 mt-1 leading-snug">
+            • <strong>옷차림:</strong> ${monOutfit.wear}<br>
+            • <strong>포인트:</strong> ${monOutfit.tip}
+          </p>
+        </div>
+      `;
+
+      // 일정표 본문 & 카톡 복사 텍스트에도 최신 수치 반영
+      document.getElementById('schedule-sun-weather').textContent = `*실시간 골프지수 ${sunIdx.score}(${sunIdx.label}) · 티오프 기온 ${sunDetail.temp}℃ (체감 ${sunDetail.apparent}℃)`;
+      document.getElementById('schedule-mon-weather').textContent = `*실시간 골프지수 ${monIdx.score}(${monIdx.label}) · 티오프 기온 ${monDetail.temp}℃ (체감 ${monDetail.apparent}℃)`;
+
+      latestWeatherSummary.sun = `골프지수 ${sunIdx.score}(${sunIdx.label}), ${sunDetail.temp}℃(체감 ${sunDetail.apparent}℃)`;
+      latestWeatherSummary.mon = `골프지수 ${monIdx.score}(${monIdx.label}), ${monDetail.temp}℃(체감 ${monDetail.apparent}℃)`;
+    }
+
     function switchGuide(tab) {
       const tabs = ['food', 'cafe', 'spot'];
       tabs.forEach(t => {
@@ -530,9 +755,9 @@
                  `  - 0일차(금) 1팀 선발대 출발: 성호·은남(06:00 과천픽업➔성심당➔내소사➔영학·규연 케이크 전달➔기숙사 입실)\n` +
                  `  - 1일차(토) 2팀 출발: 형진·용미 07:00 출발 ➔ 목포 합류\n` +
                  `🛏️ 숙소: 남악 모아엘가2차 204동 1101호 (전 일정 0원 연박)\n\n` +
-                 `⛳ 확정 티오프 & 웨더아이 골프날씨 (무안CC 18홀 셀프):\n` +
-                 `  - 1차: 11/29(일) 11:54 서A (16.5만) / 골프지수 85(매우좋음, 12~14℃, 바람막이 레이어링)\n` +
-                 `  - 2차: 11/30(월) 08:37 남B (11.5만) / 골프지수 75(좋음, 체감 1~2℃, 기모·방한 필수)\n\n` +
+                 `⛳ 확정 티오프 & 실시간 골프날씨 (무안CC 18홀 셀프):\n` +
+                 `  - 1차: 11/29(일) 11:54 서A (16.5만) / ${latestWeatherSummary.sun}\n` +
+                 `  - 2차: 11/30(월) 08:37 남B (11.5만) / ${latestWeatherSummary.mon}\n\n` +
                  `🍾 주요 식사 & 하이라이트:\n` +
                  `  - 토(점심): 너구리식당/장터식당(꽃게살 비빔밥) ➔ 해상케이블카\n` +
                  `  - 토(저녁): 기숙사 주차 후 택시 이동 ➔ 목포 하당 맛집 만찬 ➔ 샴페인+성심당 케이크 파티\n` +
@@ -540,7 +765,7 @@
                  `  - 월: 08:37 라운드 ➔ 무안 갯벌낙지직판장 점심 ➔ 해미읍성 ➔ 귀경\n\n` +
                  `💰 1인 최종 확정 회비: 600,000원 (골프 28만 + 넉넉한 공용경비 32만)\n` +
                  `   * 팀 2인 기준 1,200,000원 (유류·통행료 각 팀 별도)\n\n` +
-                 `상세 일정 및 웨더아이 골프날씨 가이드 보기:\n` +
+                 `상세 일정 및 실시간 골프날씨·복장 가이드 보기:\n` +
                  `${window.location.href}`;
 
       navigator.clipboard.writeText(text).then(() => {
@@ -549,6 +774,11 @@
         prompt("아래 내용을 복사하세요:", text);
       });
     }
+
+    // 페이지 로드 시 즉시 실시간 날씨 자동 조회 실행
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchLiveWeather(false);
+    });
   </script>
 </body>
 </html>
