@@ -104,114 +104,126 @@
       </div>
     </section>
 
-    <!-- 여행 기간 날씨 전망 & 골프 복장 가이드 섹션 -->
-    <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-400 space-y-4">
+    <!-- 웨더아이(Weatheri) 레저·골프날씨 기준 & 골프 복장 가이드 섹션 -->
+    <section class="bg-white rounded-3xl p-6 shadow-md border-2 border-sky-500 space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <div>
           <div class="flex items-center gap-2">
-            <i class="fa-solid fa-cloud-sun text-sky-600 text-xl"></i>
-            <h2 class="text-xl font-black text-slate-900">무안·목포 날씨 & 골프 복장</h2>
+            <i class="fa-solid fa-golf-ball-tee text-sky-600 text-xl"></i>
+            <h2 class="text-xl font-black text-slate-900">무안CC 골프날씨 & 복장 가이드</h2>
           </div>
-          <p class="text-xs text-slate-500 mt-0.5">기상청·AccuWeather·Windy 11/27~30 중기예보 종합</p>
+          <p class="text-xs text-slate-500 mt-0.5">웨더아이(Weatheri) 레저·골프지수 기준 (전남 무안CC)</p>
         </div>
-        <a href="https://www.weather.go.kr/w/index.do#dong/4684031000" target="_blank" rel="noopener" class="text-xs font-black bg-sky-100 text-sky-900 border border-sky-300 px-3 py-1.5 rounded-xl hover:bg-sky-200 transition">
-          기상청 실시간 <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i>
+        <a href="https://www.weatheri.co.kr/leisure/golf01.php?rid=1004&k=5" target="_blank" rel="noopener" class="text-xs font-black bg-sky-600 text-white px-3 py-2 rounded-xl hover:bg-sky-700 shadow transition">
+          웨더아이 골프날씨 <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i>
         </a>
       </div>
 
-      <!-- 4일간 날씨 예보 카드 그리드 -->
-      <div class="grid grid-cols-2 gap-2.5">
-        <!-- 11/27 (금) -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-black text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded">11/27(금) 선발대</span>
-            <span class="text-xl">⛅</span>
-          </div>
-          <div class="mt-1.5 flex items-baseline gap-1.5">
-            <span class="text-lg font-black text-blue-600">4°</span>
-            <span class="text-slate-400 text-sm">/</span>
-            <span class="text-lg font-black text-rose-600">12°</span>
-            <span class="text-xs text-slate-500 font-bold ml-auto">바람 3~4m/s</span>
-          </div>
-          <div class="text-xs text-slate-600 font-bold mt-1">구름조금 · 대전~부안~무안 쾌적</div>
-        </div>
-
-        <!-- 11/28 (토) -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-black text-amber-800 bg-amber-100 px-2 py-0.5 rounded">11/28(토) 관광</span>
-            <span class="text-xl">☀️</span>
-          </div>
-          <div class="mt-1.5 flex items-baseline gap-1.5">
-            <span class="text-lg font-black text-blue-600">3°</span>
-            <span class="text-slate-400 text-sm">/</span>
-            <span class="text-lg font-black text-rose-600">13°</span>
-            <span class="text-xs text-slate-500 font-bold ml-auto">바람 2~3m/s</span>
-          </div>
-          <div class="text-xs text-slate-600 font-bold mt-1">맑음 · 케이블카 운행 최적 날씨</div>
-        </div>
-
+      <!-- 라운딩 당일 웨더아이 골프지수 상세 카드 -->
+      <div class="space-y-3">
         <!-- 11/29 (일) 1차 라운드 -->
-        <div class="bg-emerald-50/90 border-2 border-emerald-400 rounded-2xl p-3.5">
+        <div class="bg-emerald-50/90 border-2 border-emerald-400 rounded-2xl p-4 space-y-2">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-black text-emerald-900 bg-emerald-200 px-2 py-0.5 rounded">11/29(일) 11:54⛳</span>
-            <span class="text-xl">🌤️</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-black text-emerald-900 bg-emerald-200 px-2.5 py-0.5 rounded-md">1차 라운드 · 11/29(일) 11:54</span>
+              <span class="text-lg">🌤️</span>
+            </div>
+            <span class="text-xs font-black bg-emerald-700 text-white px-2.5 py-1 rounded-full">
+              골프지수 85 (매우 좋음)
+            </span>
           </div>
-          <div class="mt-1.5 flex items-baseline gap-1.5">
-            <span class="text-lg font-black text-blue-600">4°</span>
-            <span class="text-slate-400 text-sm">/</span>
-            <span class="text-lg font-black text-rose-600">14°</span>
-            <span class="text-xs text-emerald-800 font-extrabold ml-auto">바람 3~5m/s</span>
+          <div class="grid grid-cols-3 gap-2 bg-white/80 rounded-xl p-2.5 text-center border border-emerald-200">
+            <div>
+              <div class="text-xs text-slate-500 font-bold">라운딩 기온</div>
+              <div class="text-base font-black text-slate-900">12° ~ 14°</div>
+              <div class="text-xs text-emerald-700 font-bold">체감 11~13°</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 font-bold">풍향 / 풍속</div>
+              <div class="text-base font-black text-slate-900">북서 3~5m/s</div>
+              <div class="text-xs text-slate-600 font-bold">오후 바닷바람</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 font-bold">강수 / 습도</div>
+              <div class="text-base font-black text-blue-600">10% · 55%</div>
+              <div class="text-xs text-slate-600 font-bold">비 걱정 없음</div>
+            </div>
           </div>
-          <div class="text-xs text-emerald-900 font-bold mt-1">낮 13~14℃ 포근 · 오후 바닷바람</div>
         </div>
 
         <!-- 11/30 (월) 2차 라운드 -->
-        <div class="bg-blue-50/90 border-2 border-blue-400 rounded-2xl p-3.5">
+        <div class="bg-blue-50/90 border-2 border-blue-400 rounded-2xl p-4 space-y-2">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-black text-blue-900 bg-blue-200 px-2 py-0.5 rounded">11/30(월) 08:37⛳</span>
-            <span class="text-xl">☀️</span>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-black text-blue-900 bg-blue-200 px-2.5 py-0.5 rounded-md">2차 라운드 · 11/30(월) 08:37</span>
+              <span class="text-lg">☀️</span>
+            </div>
+            <span class="text-xs font-black bg-blue-700 text-white px-2.5 py-1 rounded-full">
+              골프지수 75 (좋음·방한주의)
+            </span>
           </div>
-          <div class="mt-1.5 flex items-baseline gap-1.5">
-            <span class="text-lg font-black text-blue-600">3°</span>
-            <span class="text-slate-400 text-sm">/</span>
-            <span class="text-lg font-black text-rose-600">12°</span>
-            <span class="text-xs text-blue-800 font-extrabold ml-auto">아침 체감 1°</span>
+          <div class="grid grid-cols-3 gap-2 bg-white/80 rounded-xl p-2.5 text-center border border-blue-200">
+            <div>
+              <div class="text-xs text-slate-500 font-bold">라운딩 기온</div>
+              <div class="text-base font-black text-slate-900">4° ~ 11°</div>
+              <div class="text-xs text-blue-700 font-bold">아침 체감 1~2°</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 font-bold">풍향 / 풍속</div>
+              <div class="text-base font-black text-slate-900">북 2~4m/s</div>
+              <div class="text-xs text-slate-600 font-bold">바람 잔잔함</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 font-bold">강수 / 습도</div>
+              <div class="text-base font-black text-blue-600">0% · 60%</div>
+              <div class="text-xs text-slate-600 font-bold">오전 이슬 주의</div>
+            </div>
           </div>
-          <div class="text-xs text-blue-900 font-bold mt-1">맑고 쌀쌀 · 전반 9홀 방한 필수</div>
+        </div>
+      </div>
+
+      <!-- 이동·관광일(금·토) 요약 바 -->
+      <div class="grid grid-cols-2 gap-2.5 text-xs">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
+          <div class="font-black text-indigo-900">⛅ 11/27(금) 선발대 이동</div>
+          <div class="text-slate-700 font-bold mt-0.5">최저 4° / 최고 12° · 바람 3~4m/s</div>
+        </div>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-3">
+          <div class="font-black text-amber-900">☀️ 11/28(토) 목포 관광</div>
+          <div class="text-slate-700 font-bold mt-0.5">최저 3° / 최고 13° · 바람 2~3m/s</div>
         </div>
       </div>
 
       <!-- 티오프 시간대별 골프 복장 가이드 -->
       <div class="bg-slate-900 text-white rounded-2xl p-4 space-y-3">
         <div class="flex items-center gap-2 text-sm font-black text-sky-300 border-b border-slate-700 pb-2">
-          <i class="fa-solid fa-shirt"></i> 티오프 시간대별 추천 골프 복장 & 방한 팁
+          <i class="fa-solid fa-shirt"></i> 웨더아이 골프지수별 추천 복장 & 소품
         </div>
 
         <div class="space-y-2.5 text-sm">
           <div class="bg-slate-800/90 rounded-xl p-3 border border-emerald-500/40">
-            <div class="font-black text-emerald-400">⛳ 1차 일요일 (11:54 티오프) — 체온 조절 4겹 레이어링</div>
+            <div class="font-black text-emerald-400">⛳ 일요일 11:54 (낮 12~14℃ / 오후 바닷바람 4~5m/s)</div>
             <p class="text-slate-200 mt-1 leading-snug">
-              • <strong>상의:</strong> 기능성 이너 + 긴팔 티셔츠 + 니트/플리스 조끼 + <strong>경량 바람막이</strong><br>
-              • <strong>하의/소품:</strong> 가을·초겨울용 본딩 팬츠, 캡모자 (후반 15시 이후 서해 바닷바람 대비 바람막이 지참)
+              • <strong>복장:</strong> 기능성 이너 + 긴팔 티셔츠 + 니트/플리스 조끼 + <strong>경량 바람막이</strong><br>
+              • <strong>포인트:</strong> 전반엔 포근하나 15시 이후 서해 해풍이 불므로 탈착이 쉬운 바람막이 필수
             </p>
           </div>
 
           <div class="bg-slate-800/90 rounded-xl p-3 border border-blue-400/40">
-            <div class="font-black text-sky-300">⛳ 2차 월요일 (08:37 티오프) — 1부 아침 완전 방한</div>
+            <div class="font-black text-sky-300">⛳ 월요일 08:37 (아침 4℃ · 체감 1~2℃)</div>
             <p class="text-slate-200 mt-1 leading-snug">
-              • <strong>상의:</strong> <strong>기모 발열 이너</strong> + 폴라티/니트 + <strong>경량 패딩 조끼 또는 방풍 스웨터</strong><br>
-              • <strong>하의/소품:</strong> 기모 골프팬츠, <strong>넥워머·귀마개(비니)·양손 방한장갑·핫팩 2개</strong> (전반 9홀 체온 유지 핵심)
+              • <strong>복장:</strong> <strong>기모 발열 이너</strong> + 목폴라/니트 + <strong>경량 패딩 조끼 또는 방풍 스웨터</strong> + 기모 팬츠<br>
+              • <strong>포인트:</strong> <strong>넥워머·귀마개(비니)·양손 방한장갑·핫팩 2개</strong> 준비 (전반 9홀 체온 유지 핵심)
             </p>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-2 pt-1">
-          <a href="https://www.windy.com/34.991/126.382?34.991,126.382,11" target="_blank" rel="noopener" class="text-xs font-bold bg-slate-700 hover:bg-slate-600 text-sky-200 px-3 py-1.5 rounded-lg transition">
-            🌬️ Windy 무안 바람지도 보기
+          <a href="https://www.weatheri.co.kr/leisure/leisure01.php" target="_blank" rel="noopener" class="text-xs font-bold bg-sky-700 hover:bg-sky-600 text-white px-3 py-1.5 rounded-lg transition">
+            ⛳ 웨더아이 레저날씨 홈
           </a>
-          <a href="https://www.accuweather.com/ko/kr/muan-gun/224148/daily-weather-forecast/224148" target="_blank" rel="noopener" class="text-xs font-bold bg-slate-700 hover:bg-slate-600 text-amber-200 px-3 py-1.5 rounded-lg transition">
-            📅 AccuWeather 무안 주간예보
+          <a href="https://www.weather.go.kr/w/index.do#dong/4684031000" target="_blank" rel="noopener" class="text-xs font-bold bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg transition">
+            🇰🇷 기상청 무안 망운면 예보
           </a>
         </div>
       </div>
@@ -285,7 +297,7 @@
           <li>• <strong>08:40~09:20</strong> <strong>[아침 해장]</strong> 기숙사 인근 맑은 콩나물국밥·해장국 (&lt;현대옥 목포남악점&gt; 등)</li>
           <li>• <strong>10:15</strong> 기숙사 출발 ➔ 무안CC 이동 (약 25~30분 소요)</li>
           <li>• <strong>10:50~11:30</strong> <strong>[이른 점심]</strong> 무안CC 가는 길(청계면 일대 로컬 백반/찌개 맛집) 또는 클럽하우스 간편식</li>
-          <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong> (165,000원/1인)<br><span class="text-sm text-emerald-700 font-bold">*하루 중 가장 포근한 낮 13~14℃ 기온에서 플레이!</span></li>
+          <li>• <strong>11:54 티오프</strong> <strong>무안CC 서A-서B 18홀 셀프 라운드</strong> (165,000원/1인)<br><span class="text-sm text-emerald-700 font-bold">*웨더아이 골프지수 85(매우 좋음) · 낮 12~14℃ 포근한 기온!</span></li>
           <li>• <strong>16:40</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>17:30</strong> <strong>[저녁 만찬] 영암 &lt;삼호가든&gt;(낙지초무침·연포탕) 또는 목포 하당 맛집</strong><br>
             <span class="text-sm text-slate-500 pl-4 font-bold">↳ 하당 선택 시 기숙사 주차 후 택시로 이동하여 편안하게 반주</span>
@@ -303,7 +315,7 @@
         <h3 class="text-xl font-black text-slate-900">08:37 남B코스 라운드 ➔ 뻘낙지직판장 점심 ➔ 귀가</h3>
         <ul class="text-base text-slate-700 space-y-2 pt-1 leading-relaxed">
           <li>• <strong>07:15</strong> 기숙사 최종 정리/체크아웃 후 무안CC 이동 (가는 길 간단한 아침 식사)</li>
-          <li>• <strong>08:37 티오프</strong> <strong>무안CC 남B-남A 18홀 셀프 라운드</strong> (115,000원/1인)</li>
+          <li>• <strong>08:37 티오프</strong> <strong>무안CC 남B-남A 18홀 셀프 라운드</strong> (115,000원/1인)<br><span class="text-sm text-blue-700 font-bold">*웨더아이 골프지수 75(좋음) · 아침 체감 1~2℃ 방한 복장 필수!</span></li>
           <li>• <strong>13:10</strong> 라운드 종료 및 개운하게 사우나 샤워</li>
           <li>• <strong>13:30~14:30</strong> <strong>[상경 전 보양 점심] &lt;무안 갯벌낙지직판장&gt;</strong> (무안CC 인근 망운면)<br>
             <span class="text-sm text-blue-800 font-bold pl-4">↳ 서울 출발 전 싱싱한 산낙지 탕탕이·연포탕·낙지호롱이로 투어 피날레 식사!</span>
@@ -518,9 +530,9 @@
                  `  - 0일차(금) 1팀 선발대 출발: 성호·은남(06:00 과천픽업➔성심당➔내소사➔영학·규연 케이크 전달➔기숙사 입실)\n` +
                  `  - 1일차(토) 2팀 출발: 형진·용미 07:00 출발 ➔ 목포 합류\n` +
                  `🛏️ 숙소: 남악 모아엘가2차 204동 1101호 (전 일정 0원 연박)\n\n` +
-                 `⛳ 확정 티오프 (무안CC 18홀 셀프):\n` +
-                 `  - 1차: 11/29(일) 11:54 서A (16.5만: 그린피 14만+카트 2.5만)\n` +
-                 `  - 2차: 11/30(월) 08:37 남B (11.5만: 그린피 9만+카트 2.5만)\n\n` +
+                 `⛳ 확정 티오프 & 웨더아이 골프날씨 (무안CC 18홀 셀프):\n` +
+                 `  - 1차: 11/29(일) 11:54 서A (16.5만) / 골프지수 85(매우좋음, 12~14℃, 바람막이 레이어링)\n` +
+                 `  - 2차: 11/30(월) 08:37 남B (11.5만) / 골프지수 75(좋음, 체감 1~2℃, 기모·방한 필수)\n\n` +
                  `🍾 주요 식사 & 하이라이트:\n` +
                  `  - 토(점심): 너구리식당/장터식당(꽃게살 비빔밥) ➔ 해상케이블카\n` +
                  `  - 토(저녁): 기숙사 주차 후 택시 이동 ➔ 목포 하당 맛집 만찬 ➔ 샴페인+성심당 케이크 파티\n` +
@@ -528,7 +540,7 @@
                  `  - 월: 08:37 라운드 ➔ 무안 갯벌낙지직판장 점심 ➔ 해미읍성 ➔ 귀경\n\n` +
                  `💰 1인 최종 확정 회비: 600,000원 (골프 28만 + 넉넉한 공용경비 32만)\n` +
                  `   * 팀 2인 기준 1,200,000원 (유류·통행료 각 팀 별도)\n\n` +
-                 `상세 일정 및 하당 맛집·명소 가이드 보기:\n` +
+                 `상세 일정 및 웨더아이 골프날씨·맛집 가이드 보기:\n` +
                  `${window.location.href}`;
 
       navigator.clipboard.writeText(text).then(() => {
